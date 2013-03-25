@@ -10,6 +10,9 @@
 
 @interface LaunchRocket : NSPreferencePane
 
+@property (assign) IBOutlet NSScrollView *serviceParent;
+
+
 - (void)mainViewDidLoad;
 
 @end

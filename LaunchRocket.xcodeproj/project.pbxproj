@@ -11,8 +11,15 @@
 		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
 		03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DAC16FFD39900E09197 /* InfoPlist.strings */; };
 		03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9DB116FFD39900E09197 /* LaunchRocket.m */; };
-		03EE9DB416FFD39900E09197 /* LaunchRocket.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */; };
 		03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DB516FFD39900E09197 /* LaunchRocket.xib */; };
+		03EE9DBE16FFD40200E09197 /* LaunchRocket.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */; };
+		03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */; };
+		03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */; };
+		03EE9DC716FFD66B00E09197 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DC616FFD66B00E09197 /* rocket.png */; };
+		03EE9DC916FFF9B300E09197 /* mongodb.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DC816FFF9B300E09197 /* mongodb.png */; };
+		03EE9DCB16FFFA9B00E09197 /* redis.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DCA16FFFA9B00E09197 /* redis.png */; };
+		03EE9DCD16FFFC7C00E09197 /* nginx.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DCC16FFFC7C00E09197 /* nginx.png */; };
+		03EE9DCF16FFFD5800E09197 /* mysql.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DCE16FFFD5800E09197 /* mysql.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +34,15 @@
 		03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LaunchRocket-Prefix.pch"; sourceTree = "<group>"; };
 		03EE9DB016FFD39900E09197 /* LaunchRocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchRocket.h; sourceTree = "<group>"; };
 		03EE9DB116FFD39900E09197 /* LaunchRocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchRocket.m; sourceTree = "<group>"; };
-		03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = LaunchRocket.tiff; sourceTree = "<group>"; };
 		03EE9DB616FFD39900E09197 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchRocket.xib; sourceTree = "<group>"; };
+		03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = LaunchRocket.tiff; sourceTree = "<group>"; };
+		03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceEnumerator.h; sourceTree = "<group>"; };
+		03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceEnumerator.m; sourceTree = "<group>"; };
+		03EE9DC616FFD66B00E09197 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rocket.png; path = ../../../Desktop/rocket.png; sourceTree = "<group>"; };
+		03EE9DC816FFF9B300E09197 /* mongodb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mongodb.png; path = ../../../Desktop/mongodb.png; sourceTree = "<group>"; };
+		03EE9DCA16FFFA9B00E09197 /* redis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redis.png; path = ../../../Desktop/redis.png; sourceTree = "<group>"; };
+		03EE9DCC16FFFC7C00E09197 /* nginx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nginx.png; path = ../../../Desktop/nginx.png; sourceTree = "<group>"; };
+		03EE9DCE16FFFD5800E09197 /* mysql.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mysql.png; path = ../../../Desktop/mysql.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +98,12 @@
 		03EE9DA916FFD39900E09197 /* LaunchRocket */ = {
 			isa = PBXGroup;
 			children = (
+				03EE9DC516FFD63C00E09197 /* service-icons */,
+				03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */,
+				03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */,
 				03EE9DB016FFD39900E09197 /* LaunchRocket.h */,
 				03EE9DB116FFD39900E09197 /* LaunchRocket.m */,
-				03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */,
+				03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */,
 				03EE9DB516FFD39900E09197 /* LaunchRocket.xib */,
 				03EE9DAA16FFD39900E09197 /* Supporting Files */,
 			);
@@ -96,11 +113,23 @@
 		03EE9DAA16FFD39900E09197 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03EE9DC616FFD66B00E09197 /* rocket.png */,
 				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
 				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
 				03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03EE9DC516FFD63C00E09197 /* service-icons */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9DCA16FFFA9B00E09197 /* redis.png */,
+				03EE9DC816FFF9B300E09197 /* mongodb.png */,
+				03EE9DCE16FFFD5800E09197 /* mysql.png */,
+				03EE9DCC16FFFC7C00E09197 /* nginx.png */,
+			);
+			name = "service-icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +139,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,8 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */,
-				03EE9DB416FFD39900E09197 /* LaunchRocket.tiff in Resources */,
 				03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */,
+				03EE9DBE16FFD40200E09197 /* LaunchRocket.tiff in Resources */,
+				03EE9DC716FFD66B00E09197 /* rocket.png in Resources */,
+				03EE9DC916FFF9B300E09197 /* mongodb.png in Resources */,
+				03EE9DCB16FFFA9B00E09197 /* redis.png in Resources */,
+				03EE9DCD16FFFC7C00E09197 /* nginx.png in Resources */,
+				03EE9DCF16FFFD5800E09197 /* mysql.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */,
+				03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +314,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LaunchRocket/LaunchRocket-Prefix.pch";
 				INFOPLIST_FILE = "LaunchRocket/LaunchRocket-Info.plist";
@@ -291,6 +329,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LaunchRocket/LaunchRocket-Prefix.pch";
 				INFOPLIST_FILE = "LaunchRocket/LaunchRocket-Info.plist";
