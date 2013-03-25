@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
+		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
+		03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DAC16FFD39900E09197 /* InfoPlist.strings */; };
+		03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9DB116FFD39900E09197 /* LaunchRocket.m */; };
+		03EE9DB416FFD39900E09197 /* LaunchRocket.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */; };
+		03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DB516FFD39900E09197 /* LaunchRocket.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
+		03EE9DA116FFD39900E09197 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		03EE9DA316FFD39900E09197 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
+		03EE9DA616FFD39900E09197 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		03EE9DA716FFD39900E09197 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		03EE9DA816FFD39900E09197 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaunchRocket-Info.plist"; sourceTree = "<group>"; };
+		03EE9DAD16FFD39900E09197 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LaunchRocket-Prefix.pch"; sourceTree = "<group>"; };
+		03EE9DB016FFD39900E09197 /* LaunchRocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchRocket.h; sourceTree = "<group>"; };
+		03EE9DB116FFD39900E09197 /* LaunchRocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchRocket.m; sourceTree = "<group>"; };
+		03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = LaunchRocket.tiff; sourceTree = "<group>"; };
+		03EE9DB616FFD39900E09197 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchRocket.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03EE9D9916FFD39900E09197 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */,
+				03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03EE9D9316FFD39900E09197 = {
+			isa = PBXGroup;
+			children = (
+				03EE9DA916FFD39900E09197 /* LaunchRocket */,
+				03EE9DA016FFD39900E09197 /* Frameworks */,
+				03EE9D9F16FFD39900E09197 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03EE9D9F16FFD39900E09197 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03EE9DA016FFD39900E09197 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9DA116FFD39900E09197 /* Cocoa.framework */,
+				03EE9DA316FFD39900E09197 /* PreferencePanes.framework */,
+				03EE9DA516FFD39900E09197 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03EE9DA516FFD39900E09197 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9DA616FFD39900E09197 /* AppKit.framework */,
+				03EE9DA716FFD39900E09197 /* CoreData.framework */,
+				03EE9DA816FFD39900E09197 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		03EE9DA916FFD39900E09197 /* LaunchRocket */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9DB016FFD39900E09197 /* LaunchRocket.h */,
+				03EE9DB116FFD39900E09197 /* LaunchRocket.m */,
+				03EE9DB316FFD39900E09197 /* LaunchRocket.tiff */,
+				03EE9DB516FFD39900E09197 /* LaunchRocket.xib */,
+				03EE9DAA16FFD39900E09197 /* Supporting Files */,
+			);
+			path = LaunchRocket;
+			sourceTree = "<group>";
+		};
+		03EE9DAA16FFD39900E09197 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
+				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
+				03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		03EE9D9A16FFD39900E09197 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		03EE9D9D16FFD39900E09197 /* LaunchRocket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03EE9DBA16FFD39900E09197 /* Build configuration list for PBXNativeTarget "LaunchRocket" */;
+			buildPhases = (
+				03EE9D9816FFD39900E09197 /* Sources */,
+				03EE9D9916FFD39900E09197 /* Frameworks */,
+				03EE9D9A16FFD39900E09197 /* Headers */,
+				03EE9D9B16FFD39900E09197 /* Resources */,
+				03EE9D9C16FFD39900E09197 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaunchRocket;
+			productName = LaunchRocket;
+			productReference = 03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03EE9D9416FFD39900E09197 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Josh Butts";
+			};
+			buildConfigurationList = 03EE9D9716FFD39900E09197 /* Build configuration list for PBXProject "LaunchRocket" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 03EE9D9316FFD39900E09197;
+			productRefGroup = 03EE9D9F16FFD39900E09197 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03EE9D9D16FFD39900E09197 /* LaunchRocket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03EE9D9B16FFD39900E09197 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */,
+				03EE9DB416FFD39900E09197 /* LaunchRocket.tiff in Resources */,
+				03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		03EE9D9C16FFD39900E09197 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03EE9D9816FFD39900E09197 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		03EE9DAC16FFD39900E09197 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03EE9DAD16FFD39900E09197 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		03EE9DB516FFD39900E09197 /* LaunchRocket.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03EE9DB616FFD39900E09197 /* en */,
+			);
+			name = LaunchRocket.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03EE9DB816FFD39900E09197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		03EE9DB916FFD39900E09197 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		03EE9DBB16FFD39900E09197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaunchRocket/LaunchRocket-Prefix.pch";
+				INFOPLIST_FILE = "LaunchRocket/LaunchRocket-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = prefPane;
+			};
+			name = Debug;
+		};
+		03EE9DBC16FFD39900E09197 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaunchRocket/LaunchRocket-Prefix.pch";
+				INFOPLIST_FILE = "LaunchRocket/LaunchRocket-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/PreferencePanes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = prefPane;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03EE9D9716FFD39900E09197 /* Build configuration list for PBXProject "LaunchRocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03EE9DB816FFD39900E09197 /* Debug */,
+				03EE9DB916FFD39900E09197 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03EE9DBA16FFD39900E09197 /* Build configuration list for PBXNativeTarget "LaunchRocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03EE9DBB16FFD39900E09197 /* Debug */,
+				03EE9DBC16FFD39900E09197 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03EE9D9416FFD39900E09197 /* Project object */;
+}
