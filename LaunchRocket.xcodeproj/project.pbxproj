@@ -20,6 +20,12 @@
 		03EE9DD616FFFF8200E09197 /* nginx.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD216FFFF8200E09197 /* nginx.png */; };
 		03EE9DD716FFFF8200E09197 /* redis.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD316FFFF8200E09197 /* redis.png */; };
 		03EE9DD916FFFF9300E09197 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD816FFFF9300E09197 /* rocket.png */; };
+		03F2EBBA1702997E000077DE /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBB81702997D000077DE /* Service.h */; };
+		03F2EBBB1702997E000077DE /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBB91702997E000077DE /* Service.m */; };
+		03F2EBBE17029DF6000077DE /* ServicePane.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBBC17029DF6000077DE /* ServicePane.h */; };
+		03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBBD17029DF6000077DE /* ServicePane.m */; };
+		03F2EBC61702A55C000077DE /* FlippedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBC41702A55C000077DE /* FlippedView.h */; };
+		03F2EBC71702A55C000077DE /* FlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBC51702A55C000077DE /* FlippedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,12 @@
 		03EE9DD216FFFF8200E09197 /* nginx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nginx.png; sourceTree = "<group>"; };
 		03EE9DD316FFFF8200E09197 /* redis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redis.png; sourceTree = "<group>"; };
 		03EE9DD816FFFF9300E09197 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
+		03F2EBB81702997D000077DE /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
+		03F2EBB91702997E000077DE /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		03F2EBBC17029DF6000077DE /* ServicePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicePane.h; sourceTree = "<group>"; };
+		03F2EBBD17029DF6000077DE /* ServicePane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicePane.m; sourceTree = "<group>"; };
+		03F2EBC41702A55C000077DE /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedView.h; sourceTree = "<group>"; };
+		03F2EBC51702A55C000077DE /* FlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,12 @@
 				03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */,
 				03EE9DB516FFD39900E09197 /* LaunchRocket.xib */,
 				03EE9DAA16FFD39900E09197 /* Supporting Files */,
+				03F2EBB81702997D000077DE /* Service.h */,
+				03F2EBB91702997E000077DE /* Service.m */,
+				03F2EBBC17029DF6000077DE /* ServicePane.h */,
+				03F2EBBD17029DF6000077DE /* ServicePane.m */,
+				03F2EBC41702A55C000077DE /* FlippedView.h */,
+				03F2EBC51702A55C000077DE /* FlippedView.m */,
 			);
 			path = LaunchRocket;
 			sourceTree = "<group>";
@@ -140,6 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */,
+				03F2EBBA1702997E000077DE /* Service.h in Headers */,
+				03F2EBBE17029DF6000077DE /* ServicePane.h in Headers */,
+				03F2EBC61702A55C000077DE /* FlippedView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +247,9 @@
 			files = (
 				03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */,
 				03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */,
+				03F2EBBB1702997E000077DE /* Service.m in Sources */,
+				03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */,
+				03F2EBC71702A55C000077DE /* FlippedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

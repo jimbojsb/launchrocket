@@ -7,6 +7,7 @@
 //
 
 #import "ServiceEnumerator.h"
+#import "Service.h"
 
 @implementation ServiceEnumerator
 
@@ -25,21 +26,22 @@
                 continue;
             }
             [launchRocketData setObject: fullFilePath forKey:@"plist"];
-            BOOL iconIsLoadable = [fileManager fileExistsAtPath:[launchRocketData objectForKey:@"icon"]];
-            NSImage *icon;
-            if (iconIsLoadable) {
-                icon = [[NSImage alloc] initWithContentsOfFile:[launchRocketData objectForKey:@"icon"]];
+            BOOL imageIsLoadable = [fileManager fileExistsAtPath:[launchRocketData objectForKey:@"image"]];
+            NSImage *image;
+            if (imageIsLoadable) {
+                image = [[NSImage alloc] initWithContentsOfFile:[launchRocketData objectForKey:@"image"]];
             } else {
                 NSString *resourcePath = [bundle resourcePath];
-                NSString *iconPath = [NSString stringWithFormat:@"%@%@%@", resourcePath, @"/", [launchRocketData objectForKey:@"icon"]];
-                icon = [[NSImage alloc] initWithContentsOfFile: iconPath];
+                NSString *iconPath = [NSString stringWithFormat:@"%@%@%@", resourcePath, @"/", [launchRocketData objectForKey:@"image"]];
+                image = [[NSImage alloc] initWithContentsOfFile: iconPath];
             }
-            if (icon == nil) {
+            if (image == nil) {
                 continue;
             } else {
-                [launchRocketData setObject:icon forKey:@"icon"];
+                [launchRocketData setObject:image forKey:@"image"];
             }
-            [services addObject:launchRocketData];
+            Service *service = [[Service alloc] initWithOptions:launchRocketData];
+            [services addObject:service];
         }
     }
    return services;
