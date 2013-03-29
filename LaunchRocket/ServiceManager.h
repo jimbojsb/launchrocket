@@ -10,8 +10,8 @@
 
 @interface ServiceManager : NSObject
 
-@property (assign) NSMutableDictionary *serviceControllers;
-@property (assign) NSMutableArray *services;
+@property (retain) NSMutableDictionary *serviceControllers;
+@property (retain) NSMutableArray *services;
 
 -(id) init;
 -(void) handleOnOffClick:(id) sender;

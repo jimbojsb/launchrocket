@@ -27,12 +27,12 @@
 }
 
 -(BOOL) isStarted {
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@".*?\"PID\" = \"[0-9]\".*?" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
     NSTask *command = [[NSTask alloc] init];
-    NSArray *args = [NSArray arrayWithObjects:@"list", self.service.plist, nil];
+    NSString *bashCommand = [NSString stringWithFormat:@"%@%@", @"/bin/launchctl list | grep ", self.service.identifier];
+    NSArray *args = [NSArray arrayWithObjects:@"-c", bashCommand, nil];
     NSPipe *stdOut = [NSPipe pipe];
     
-    [command setLaunchPath:@"/bin/launchctl"];
+    [command setLaunchPath:@"/bin/bash"];
     [command setArguments:args];
     [command setStandardOutput:stdOut];
     [command launch];
@@ -42,7 +42,7 @@
     NSData *readData = [read readDataToEndOfFile];
     NSString *output = [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
     
-    if ([regex numberOfMatchesInString:output options:0 range:NSMakeRange(0, [output length])] > 0) {
+    if ([output length] > 0) {
         return YES;
     }
     return NO;

@@ -11,10 +11,10 @@
 
 @interface ServiceController : NSObject
 
-@property (assign) Service *service;
-@property (assign) NSString *plistPath;
-@property (assign) NSString *launchAgentPath;
-@property (assign) NSFileManager *fm;
+@property (retain) Service *service;
+@property (retain) NSString *plistPath;
+@property (retain) NSString *launchAgentPath;
+@property (retain) NSFileManager *fm;
 
 -(id) initWithService:(Service *) theService;
 -(BOOL) isStarted;

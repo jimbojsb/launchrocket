@@ -10,6 +10,6 @@
 
 @interface ToggleButton : NSButton
 
-@property (assign) NSString *serviceName;
+@property (retain) NSString *serviceName;
 
 @end

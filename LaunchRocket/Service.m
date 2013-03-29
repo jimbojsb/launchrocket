@@ -13,12 +13,14 @@
 @synthesize plist;
 @synthesize name;
 @synthesize image;
+@synthesize identifier;
 
 - (id) initWithOptions:(NSDictionary *)options {
     self = [super init];
     self.plist = [options objectForKey:@"plist"];
     self.name = [options objectForKey:@"name"];
     self.image = [options objectForKey:@"image"];
+    self.identifier = [self.plist stringByReplacingOccurrencesOfString:@".plist" withString:@""];
 
     return self;    
 }

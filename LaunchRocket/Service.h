@@ -10,9 +10,10 @@
 
 @interface Service : NSObject
 
-@property (assign) NSString* plist;
-@property (assign) NSString* name;
-@property (assign) NSImage* image;
+@property (retain) NSString* plist;
+@property (retain) NSString* name;
+@property (retain) NSImage* image;
+@property (retain) NSString* identifier;
 
 - (id) initWithOptions:(NSDictionary*) options;
 

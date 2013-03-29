@@ -10,6 +10,6 @@
 
 @interface SegmentButton : NSSegmentedControl
 
-@property (assign) NSString *serviceName;
+@property (retain) NSString *serviceName;
 
 @end

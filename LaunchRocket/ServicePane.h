@@ -11,8 +11,8 @@
 
 @interface ServicePane : NSObject
 
-@property (assign) ServiceManager* serviceManager;
-@property (assign) NSScrollView* view;
+@property (retain) ServiceManager* serviceManager;
+@property (retain) NSScrollView* view;
 
 -(id) initWithServiceManager:(ServiceManager *) sm andView:(NSScrollView *) scrollView;
 -(void) renderList;
