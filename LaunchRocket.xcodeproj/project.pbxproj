@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03233D5C170544B1009727CB /* beanstalkd.png in Resources */ = {isa = PBXBuildFile; fileRef = 03233D5B170544B1009727CB /* beanstalkd.png */; };
+		03233D5F17054544009727CB /* ServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 03233D5D17054544009727CB /* ServiceController.h */; };
+		03233D6017054544009727CB /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233D5E17054544009727CB /* ServiceController.m */; };
+		0351F8731705543600CE9495 /* ServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8711705543600CE9495 /* ServiceManager.h */; };
+		0351F8741705543600CE9495 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F8721705543600CE9495 /* ServiceManager.m */; };
+		0351F877170558EC00CE9495 /* SegmentButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F875170558EC00CE9495 /* SegmentButton.h */; };
+		0351F878170558EC00CE9495 /* SegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F876170558EC00CE9495 /* SegmentButton.m */; };
+		0351F87B1705594400CE9495 /* ToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8791705594400CE9495 /* ToggleButton.h */; };
+		0351F87C1705594400CE9495 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F87A1705594400CE9495 /* ToggleButton.m */; };
 		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
 		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
 		03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DAC16FFD39900E09197 /* InfoPlist.strings */; };
@@ -26,9 +35,20 @@
 		03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBBD17029DF6000077DE /* ServicePane.m */; };
 		03F2EBC61702A55C000077DE /* FlippedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBC41702A55C000077DE /* FlippedView.h */; };
 		03F2EBC71702A55C000077DE /* FlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBC51702A55C000077DE /* FlippedView.m */; };
+		03F2EBCB17053A47000077DE /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EBCA17053A47000077DE /* stop.png */; };
+		03F2EBCD17054180000077DE /* php-fpm.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EBCC17054180000077DE /* php-fpm.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03233D5B170544B1009727CB /* beanstalkd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beanstalkd.png; sourceTree = "<group>"; };
+		03233D5D17054544009727CB /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
+		03233D5E17054544009727CB /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
+		0351F8711705543600CE9495 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
+		0351F8721705543600CE9495 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
+		0351F875170558EC00CE9495 /* SegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentButton.h; sourceTree = "<group>"; };
+		0351F876170558EC00CE9495 /* SegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButton.m; sourceTree = "<group>"; };
+		0351F8791705594400CE9495 /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
+		0351F87A1705594400CE9495 /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
 		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EE9DA116FFD39900E09197 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03EE9DA316FFD39900E09197 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -55,6 +75,8 @@
 		03F2EBBD17029DF6000077DE /* ServicePane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicePane.m; sourceTree = "<group>"; };
 		03F2EBC41702A55C000077DE /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedView.h; sourceTree = "<group>"; };
 		03F2EBC51702A55C000077DE /* FlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedView.m; sourceTree = "<group>"; };
+		03F2EBCA17053A47000077DE /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		03F2EBCC17054180000077DE /* php-fpm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "php-fpm.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +146,14 @@
 				03F2EBBD17029DF6000077DE /* ServicePane.m */,
 				03F2EBC41702A55C000077DE /* FlippedView.h */,
 				03F2EBC51702A55C000077DE /* FlippedView.m */,
+				03233D5D17054544009727CB /* ServiceController.h */,
+				03233D5E17054544009727CB /* ServiceController.m */,
+				0351F8711705543600CE9495 /* ServiceManager.h */,
+				0351F8721705543600CE9495 /* ServiceManager.m */,
+				0351F875170558EC00CE9495 /* SegmentButton.h */,
+				0351F876170558EC00CE9495 /* SegmentButton.m */,
+				0351F8791705594400CE9495 /* ToggleButton.h */,
+				0351F87A1705594400CE9495 /* ToggleButton.m */,
 			);
 			path = LaunchRocket;
 			sourceTree = "<group>";
@@ -131,6 +161,7 @@
 		03EE9DAA16FFD39900E09197 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03F2EBCA17053A47000077DE /* stop.png */,
 				03EE9DD816FFFF9300E09197 /* rocket.png */,
 				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
 				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
@@ -142,6 +173,8 @@
 		03EE9DC516FFD63C00E09197 /* service-icons */ = {
 			isa = PBXGroup;
 			children = (
+				03233D5B170544B1009727CB /* beanstalkd.png */,
+				03F2EBCC17054180000077DE /* php-fpm.png */,
 				03EE9DD016FFFF8200E09197 /* mongodb.png */,
 				03EE9DD116FFFF8200E09197 /* mysql.png */,
 				03EE9DD216FFFF8200E09197 /* nginx.png */,
@@ -161,6 +194,10 @@
 				03F2EBBA1702997E000077DE /* Service.h in Headers */,
 				03F2EBBE17029DF6000077DE /* ServicePane.h in Headers */,
 				03F2EBC61702A55C000077DE /* FlippedView.h in Headers */,
+				03233D5F17054544009727CB /* ServiceController.h in Headers */,
+				0351F8731705543600CE9495 /* ServiceManager.h in Headers */,
+				0351F877170558EC00CE9495 /* SegmentButton.h in Headers */,
+				0351F87B1705594400CE9495 /* ToggleButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +262,9 @@
 				03EE9DD616FFFF8200E09197 /* nginx.png in Resources */,
 				03EE9DD716FFFF8200E09197 /* redis.png in Resources */,
 				03EE9DD916FFFF9300E09197 /* rocket.png in Resources */,
+				03F2EBCB17053A47000077DE /* stop.png in Resources */,
+				03F2EBCD17054180000077DE /* php-fpm.png in Resources */,
+				03233D5C170544B1009727CB /* beanstalkd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +290,10 @@
 				03F2EBBB1702997E000077DE /* Service.m in Sources */,
 				03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */,
 				03F2EBC71702A55C000077DE /* FlippedView.m in Sources */,
+				03233D6017054544009727CB /* ServiceController.m in Sources */,
+				0351F8741705543600CE9495 /* ServiceManager.m in Sources */,
+				0351F878170558EC00CE9495 /* SegmentButton.m in Sources */,
+				0351F87C1705594400CE9495 /* ToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

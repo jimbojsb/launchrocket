@@ -9,45 +9,63 @@
 #import "ServicePane.h"
 #import "Service.h"
 #import "FlippedView.h"
+#import "ServiceController.h"
+#import "ServiceManager.h"
+#import "SegmentButton.h"
+#import "ToggleButton.h"
 
 @implementation ServicePane
 
-@synthesize services;
 @synthesize view;
+@synthesize serviceManager;
 
--(id) initWithServices:(NSMutableArray *)servicesList andView:(NSScrollView *)scrollView {
+-(id) initWithServiceManager:(ServiceManager *)sm andView:(NSScrollView *)scrollView {
     self = [super init];
-    self.services = servicesList;
+    self.serviceManager = sm;
     self.view = scrollView;
     return self;
 }
 
 -(void) renderList {
-    int serviceListHeight = (int) (70 * [self.services count]);
+    int serviceListHeight = (int) (70 * [self.serviceManager.services count]);
     FlippedView *serviceList = [[FlippedView alloc] initWithFrame:NSMakeRect(0, 0, 400, serviceListHeight)];
     
     int listOffsetPixels = 0;
-    for (Service *service in self.services) {
-//        NSTextField *tf = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 150, 20)];
-//        [tf setStringValue:service.name];
-//        [tf setBezeled: NO];
-//        [tf setDrawsBackground:NO];
-//        [tf setEditable:NO];
-//        [tf setSelectable:NO];
+    for (Service *service in self.serviceManager.services) {
+        
+        ServiceController *sc = [self.serviceManager.serviceControllers objectForKey:service.name];
         
         NSImageView *imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 150, 50)];
         [imageView setImage:service.image];
         [serviceList addSubview:imageView];
         
-        NSSegmentedControl *buttons = [[NSSegmentedControl alloc] initWithFrame:NSMakeRect(170, listOffsetPixels, 150, 50)];
-        [buttons setSegmentCount:3];
-        [buttons setLabel:@"Off" forSegment:0];
-        [buttons setLabel:@"On" forSegment:1];
-        [buttons setLabel:@"Auto" forSegment:2];
-        [buttons setSegmentStyle:NSSegmentStyleCapsule];
-        [serviceList addSubview:buttons];
+        SegmentButton *onOff = [[SegmentButton alloc] initWithFrame:NSMakeRect(170, listOffsetPixels, 100, 50)];
+        [onOff setSegmentCount:2];
+        [onOff setLabel:@"Off" forSegment:0];
+        [onOff setLabel:@"On" forSegment:1];
+        [onOff setSegmentStyle:NSSegmentStyleCapsule];
+        [onOff setTarget:self.serviceManager];
+        [onOff setAction:@selector(handleOnOffClick:)];
+        onOff.serviceName = service.name;
+        if ([sc isStarted]) {
+            [onOff setSelected:YES forSegment:1];
+        } else {
+            [onOff setSelected:YES forSegment:0];
+        }
+        [serviceList addSubview:onOff];
         
-//        [serviceList addSubview:tf];
+        ToggleButton *startAtLogin = [[ToggleButton alloc] initWithFrame:NSMakeRect(275, listOffsetPixels, 100, 50)];
+        [startAtLogin setTitle:@"Start at Login"];
+        [startAtLogin setButtonType:NSPushOnPushOffButton];
+        [startAtLogin setBezelStyle:NSTexturedRoundedBezelStyle];
+        [startAtLogin setTarget:self.serviceManager];
+        [startAtLogin setAction:@selector(handleStartAtLoginClick:)];
+        startAtLogin.serviceName = service.name;
+        if ([sc shouldStartAtLogin]) {
+            [startAtLogin setState:NSOnState];
+        }
+        [serviceList addSubview:startAtLogin];
+        
         listOffsetPixels += 70;
     }
         

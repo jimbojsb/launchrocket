@@ -25,7 +25,7 @@
             if (launchRocketData == nil) {
                 continue;
             }
-            [launchRocketData setObject: fullFilePath forKey:@"plist"];
+            [launchRocketData setObject: file forKey:@"plist"];
             BOOL imageIsLoadable = [fileManager fileExistsAtPath:[launchRocketData objectForKey:@"image"]];
             NSImage *image;
             if (imageIsLoadable) {

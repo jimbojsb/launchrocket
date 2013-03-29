@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServiceManager.h"
 
 @interface ServicePane : NSObject
 
-@property (assign) NSMutableArray* services;
+@property (assign) ServiceManager* serviceManager;
 @property (assign) NSScrollView* view;
 
--(id) initWithServices:(NSMutableArray *) servicesList andView:(NSScrollView *) scrollView;
+-(id) initWithServiceManager:(ServiceManager *) sm andView:(NSScrollView *) scrollView;
 -(void) renderList;
 
 @end
