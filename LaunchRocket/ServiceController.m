@@ -11,7 +11,6 @@
 @implementation ServiceController
 
 @synthesize service;
-@synthesize plistPath;
 @synthesize launchAgentPath;
 @synthesize fm;
 
@@ -20,9 +19,7 @@
     
     self.service = theService;
     self.fm = [[NSFileManager alloc] init];
-    self.plistPath = [NSString stringWithFormat:@"%@%@", @"/usr/local/etc/launchrocket/", self.service.plist];
-    self.launchAgentPath = [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Library/LaunchAgents/", self.service.plist];
-    
+    self.launchAgentPath = [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Library/LaunchAgents/", self.service.plistFilename];
     return self;
 }
 
@@ -56,13 +53,13 @@
 -(void) startAtLogin:(BOOL) shouldStartAtLogin {
     [self.fm removeItemAtPath:self.launchAgentPath error:nil];
     if (shouldStartAtLogin) {
-        [self.fm createSymbolicLinkAtPath:self.launchAgentPath withDestinationPath:self.plistPath error:nil];
+        [self.fm createSymbolicLinkAtPath:self.launchAgentPath withDestinationPath:self.service.plist error:nil];
     }
 }
 
 -(void) stop {
     NSTask *command = [[NSTask alloc] init];
-    NSArray *args = [NSArray arrayWithObjects:@"unload", self.plistPath, nil];
+    NSArray *args = [NSArray arrayWithObjects:@"unload", self.service.plist, nil];
     
     [command setLaunchPath:@"/bin/launchctl"];
     [command setArguments:args];
@@ -73,7 +70,7 @@
 
 -(void) start {
     NSTask *command = [[NSTask alloc] init];
-    NSArray *args = [NSArray arrayWithObjects:@"load", self.plistPath, nil];
+    NSArray *args = [NSArray arrayWithObjects:@"load", self.service.plist, nil];
     
     [command setLaunchPath:@"/bin/launchctl"];
     [command setArguments:args];

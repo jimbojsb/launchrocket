@@ -13,6 +13,7 @@
 @property (retain) NSString* plist;
 @property (retain) NSImage* image;
 @property (retain) NSString* identifier;
+@property (retain) NSString* plistFilename;
 
 - (id) initWithOptions:(NSDictionary*) options;
 

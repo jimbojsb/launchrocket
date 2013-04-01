@@ -58,6 +58,22 @@
     }
 }
 
+-(void) cleanServicesFile {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
+    NSFileManager *fm = [[NSFileManager alloc] init];
+    NSMutableArray *servicesToRemove = [[NSMutableArray alloc] init];
+    for (NSString *key in dict) {
+        NSDictionary *data = [dict objectForKey:key];
+        if (![fm fileExistsAtPath:[data objectForKey:@"plist"]]) {
+            [servicesToRemove addObject:key];
+        }
+    }
+    for (NSString *key in servicesToRemove) {
+        [dict removeObjectForKey:key];
+    }
+    [dict writeToFile:self.servicesFilePath atomically:YES];
+}
+
 -(IBAction) handleHomebrewScanClick:(id)sender {
     NSFileManager *fm = [[NSFileManager alloc] init];
     NSString *homebrewMappingFile = [[NSString alloc] initWithFormat:@"%@%@", [self.bundle resourcePath], @"/homebrew-mapping.plist"];
@@ -73,7 +89,9 @@
             }
         }
     }
-    
+    [self cleanServicesFile];
+    [self loadServicesFromPlist];
+    [self renderList];
 }
 
 -(void) addService:(NSString *)plistFile imageFile:(NSString *)imageFile {

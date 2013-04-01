@@ -18,10 +18,9 @@
 - (void)mainViewDidLoad
 {
     ServiceManager *sm = [[ServiceManager alloc] initWithBundle: [self bundle] andView:self.serviceParent];
-    
+    [sm cleanServicesFile];
     [self.homebrewScan setTarget:sm];
     [self.homebrewScan setAction:@selector(handleHomebrewScanClick:)];
-    
     [sm renderList];
 }
 

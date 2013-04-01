@@ -13,13 +13,15 @@
 @synthesize plist;
 @synthesize image;
 @synthesize identifier;
+@synthesize plistFilename;
 
 - (id) initWithOptions:(NSDictionary *)options {
     self = [super init];
     self.plist = [options objectForKey:@"plist"];
     self.image = [options objectForKey:@"image"];
-    self.identifier = [self.plist stringByReplacingOccurrencesOfString:@".plist" withString:@""];
-
+    NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfFile:self.plist];
+    self.identifier = [plistData objectForKey:@"Label"];
+    self.plistFilename = [NSString stringWithFormat:@"%@%@", self.identifier, @".plist"];
     return self;    
 }
 

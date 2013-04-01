@@ -12,7 +12,6 @@
 @interface ServiceController : NSObject
 
 @property (retain) Service *service;
-@property (retain) NSString *plistPath;
 @property (retain) NSString *launchAgentPath;
 @property (retain) NSFileManager *fm;
 

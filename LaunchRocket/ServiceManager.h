@@ -20,6 +20,7 @@
 -(void) handleOnOffClick:(id) sender;
 -(void) handleStartAtLoginClick:(id) sender;
 -(void) createServicesFile;
+-(void) cleanServicesFile;
 -(void) renderList;
 -(void) loadServicesFromPlist;
 -(void) addService: (NSString *)plistFile imageFile:(NSString *)imageFile;

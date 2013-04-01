@@ -16,7 +16,6 @@
 		0351F878170558EC00CE9495 /* SegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F876170558EC00CE9495 /* SegmentButton.m */; };
 		0351F87B1705594400CE9495 /* ToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8791705594400CE9495 /* ToggleButton.h */; };
 		0351F87C1705594400CE9495 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F87A1705594400CE9495 /* ToggleButton.m */; };
-		03A051AF17091D2C00BDA527 /* services.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A051AE17091D2C00BDA527 /* services.plist */; };
 		03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A051B017091D4B00BDA527 /* homebrew-mapping.plist */; };
 		03BA205F1705EEC2002D5889 /* postgres.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BA205E1705EEC2002D5889 /* postgres.png */; };
 		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
@@ -50,7 +49,6 @@
 		0351F876170558EC00CE9495 /* SegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButton.m; sourceTree = "<group>"; };
 		0351F8791705594400CE9495 /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
 		0351F87A1705594400CE9495 /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
-		03A051AE17091D2C00BDA527 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
 		03A051B017091D4B00BDA527 /* homebrew-mapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "homebrew-mapping.plist"; sourceTree = "<group>"; };
 		03BA205E1705EEC2002D5889 /* postgres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postgres.png; sourceTree = "<group>"; };
 		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +164,6 @@
 				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
 				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
 				03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */,
-				03A051AE17091D2C00BDA527 /* services.plist */,
 				03A051B017091D4B00BDA527 /* homebrew-mapping.plist */,
 			);
 			name = "Supporting Files";
@@ -268,7 +265,6 @@
 				03F2EBCD17054180000077DE /* php-fpm.png in Resources */,
 				03233D5C170544B1009727CB /* beanstalkd.png in Resources */,
 				03BA205F1705EEC2002D5889 /* postgres.png in Resources */,
-				03A051AF17091D2C00BDA527 /* services.plist in Resources */,
 				03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
