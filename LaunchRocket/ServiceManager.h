@@ -12,9 +12,17 @@
 
 @property (retain) NSMutableDictionary *serviceControllers;
 @property (retain) NSMutableArray *services;
+@property (retain) NSBundle *bundle;
+@property (retain) NSScrollView* serviceParent;
+@property (retain) NSString *servicesFilePath;
 
--(id) init;
+-(id) initWithBundle: (NSBundle *)b andView:(NSScrollView *)sv;
 -(void) handleOnOffClick:(id) sender;
 -(void) handleStartAtLoginClick:(id) sender;
+-(void) createServicesFile;
+-(void) renderList;
+-(void) loadServicesFromPlist;
+-(void) addService: (NSString *)plistFile imageFile:(NSString *)imageFile;
+-(IBAction) handleHomebrewScanClick:(id) sender;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ServiceEnumerator : NSObject
 
-+ (NSMutableArray *) enumerateWithBundle: (NSBundle *) bundle;
-+ (void) createServicesDirectory;
+-(id) initWithBundle: (NSBundle *) bundle;
+- (void) createServicesDirectory;
 
 @end

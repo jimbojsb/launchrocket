@@ -7,31 +7,22 @@
 //
 
 #import "LaunchRocket.h"
-#import "ServiceEnumerator.h"
-#import "Service.h"
-#import "ServicePane.h"
 #import "ServiceManager.h"
-#import "ServiceController.h"
 
 
 @implementation LaunchRocket
 
 @synthesize serviceParent;
+@synthesize homebrewScan;
 
 - (void)mainViewDidLoad
 {
-    ServiceManager *sm = [[ServiceManager alloc] init];
+    ServiceManager *sm = [[ServiceManager alloc] initWithBundle: [self bundle] andView:self.serviceParent];
     
-    NSMutableArray *services = [ServiceEnumerator enumerateWithBundle: [self bundle]];
-    sm.services = services;
+    [self.homebrewScan setTarget:sm];
+    [self.homebrewScan setAction:@selector(handleHomebrewScanClick:)];
     
-    for (Service *s in services) {
-        ServiceController *sc = [[ServiceController alloc] initWithService:s];
-        [sm.serviceControllers setObject:sc forKey:s.name];
-    }
-    
-    ServicePane *sp = [[ServicePane alloc] initWithServiceManager:sm andView:self.serviceParent];
-    [sp renderList];
+    [sm renderList];
 }
 
 @end

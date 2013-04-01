@@ -16,6 +16,8 @@
 		0351F878170558EC00CE9495 /* SegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F876170558EC00CE9495 /* SegmentButton.m */; };
 		0351F87B1705594400CE9495 /* ToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8791705594400CE9495 /* ToggleButton.h */; };
 		0351F87C1705594400CE9495 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F87A1705594400CE9495 /* ToggleButton.m */; };
+		03A051AF17091D2C00BDA527 /* services.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A051AE17091D2C00BDA527 /* services.plist */; };
+		03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A051B017091D4B00BDA527 /* homebrew-mapping.plist */; };
 		03BA205F1705EEC2002D5889 /* postgres.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BA205E1705EEC2002D5889 /* postgres.png */; };
 		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
 		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
@@ -32,8 +34,6 @@
 		03EE9DD916FFFF9300E09197 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD816FFFF9300E09197 /* rocket.png */; };
 		03F2EBBA1702997E000077DE /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBB81702997D000077DE /* Service.h */; };
 		03F2EBBB1702997E000077DE /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBB91702997E000077DE /* Service.m */; };
-		03F2EBBE17029DF6000077DE /* ServicePane.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBBC17029DF6000077DE /* ServicePane.h */; };
-		03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBBD17029DF6000077DE /* ServicePane.m */; };
 		03F2EBC61702A55C000077DE /* FlippedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBC41702A55C000077DE /* FlippedView.h */; };
 		03F2EBC71702A55C000077DE /* FlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBC51702A55C000077DE /* FlippedView.m */; };
 		03F2EBCB17053A47000077DE /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EBCA17053A47000077DE /* stop.png */; };
@@ -50,6 +50,8 @@
 		0351F876170558EC00CE9495 /* SegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButton.m; sourceTree = "<group>"; };
 		0351F8791705594400CE9495 /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
 		0351F87A1705594400CE9495 /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
+		03A051AE17091D2C00BDA527 /* services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = services.plist; sourceTree = "<group>"; };
+		03A051B017091D4B00BDA527 /* homebrew-mapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "homebrew-mapping.plist"; sourceTree = "<group>"; };
 		03BA205E1705EEC2002D5889 /* postgres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postgres.png; sourceTree = "<group>"; };
 		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EE9DA116FFD39900E09197 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -73,8 +75,6 @@
 		03EE9DD816FFFF9300E09197 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		03F2EBB81702997D000077DE /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		03F2EBB91702997E000077DE /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
-		03F2EBBC17029DF6000077DE /* ServicePane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicePane.h; sourceTree = "<group>"; };
-		03F2EBBD17029DF6000077DE /* ServicePane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicePane.m; sourceTree = "<group>"; };
 		03F2EBC41702A55C000077DE /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedView.h; sourceTree = "<group>"; };
 		03F2EBC51702A55C000077DE /* FlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedView.m; sourceTree = "<group>"; };
 		03F2EBCA17053A47000077DE /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
@@ -144,8 +144,6 @@
 				03EE9DAA16FFD39900E09197 /* Supporting Files */,
 				03F2EBB81702997D000077DE /* Service.h */,
 				03F2EBB91702997E000077DE /* Service.m */,
-				03F2EBBC17029DF6000077DE /* ServicePane.h */,
-				03F2EBBD17029DF6000077DE /* ServicePane.m */,
 				03F2EBC41702A55C000077DE /* FlippedView.h */,
 				03F2EBC51702A55C000077DE /* FlippedView.m */,
 				03233D5D17054544009727CB /* ServiceController.h */,
@@ -168,6 +166,8 @@
 				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
 				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
 				03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */,
+				03A051AE17091D2C00BDA527 /* services.plist */,
+				03A051B017091D4B00BDA527 /* homebrew-mapping.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,7 +195,6 @@
 			files = (
 				03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */,
 				03F2EBBA1702997E000077DE /* Service.h in Headers */,
-				03F2EBBE17029DF6000077DE /* ServicePane.h in Headers */,
 				03F2EBC61702A55C000077DE /* FlippedView.h in Headers */,
 				03233D5F17054544009727CB /* ServiceController.h in Headers */,
 				0351F8731705543600CE9495 /* ServiceManager.h in Headers */,
@@ -269,6 +268,8 @@
 				03F2EBCD17054180000077DE /* php-fpm.png in Resources */,
 				03233D5C170544B1009727CB /* beanstalkd.png in Resources */,
 				03BA205F1705EEC2002D5889 /* postgres.png in Resources */,
+				03A051AF17091D2C00BDA527 /* services.plist in Resources */,
+				03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +293,6 @@
 				03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */,
 				03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */,
 				03F2EBBB1702997E000077DE /* Service.m in Sources */,
-				03F2EBBF17029DF6000077DE /* ServicePane.m in Sources */,
 				03F2EBC71702A55C000077DE /* FlippedView.m in Sources */,
 				03233D6017054544009727CB /* ServiceController.m in Sources */,
 				0351F8741705543600CE9495 /* ServiceManager.m in Sources */,

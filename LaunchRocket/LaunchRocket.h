@@ -11,6 +11,7 @@
 @interface LaunchRocket : NSPreferencePane
 
 @property (assign) IBOutlet NSScrollView *serviceParent;
+@property (assign) IBOutlet NSButton *homebrewScan;
 
 
 - (void)mainViewDidLoad;
