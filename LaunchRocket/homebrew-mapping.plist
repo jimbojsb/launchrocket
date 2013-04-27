@@ -14,6 +14,8 @@
 	<string>nginx.png</string>
 	<key>homebrew.mxcl.beanstalk</key>
 	<string>beanstalkd.png</string>
+	<key>homebrew.mxcl.couchdb</key>
+	<string>couchdb.png</string>
 	<key>homebrew.mxcl.postgresql</key>
 	<string>postgres.png</string>
 </dict>
