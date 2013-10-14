@@ -19,7 +19,7 @@
     
     self.service = theService;
     self.fm = [[NSFileManager alloc] init];
-    self.launchAgentPath = [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Library/LaunchAgents/", self.service.plistFilename];
+    self.launchAgentPath = [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Library/LaunchAgents/", self.service.plist];
     return self;
 }
 

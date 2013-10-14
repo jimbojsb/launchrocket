@@ -12,7 +12,7 @@
 
 @property (assign) IBOutlet NSScrollView *serviceParent;
 @property (assign) IBOutlet NSButton *homebrewScan;
-
+@property (assign) IBOutlet NSButton *add;
 
 - (void)mainViewDidLoad;
 

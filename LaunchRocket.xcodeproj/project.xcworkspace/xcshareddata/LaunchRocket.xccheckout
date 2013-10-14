@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2234403F-E346-4A52-9078-307C6B7C6622</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LaunchRocket</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9AC5F678-D5A6-42EC-B396-AA93EA726648</key>
+		<string>ssh://github.com/jimbojsb/launchrocket</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LaunchRocket.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9AC5F678-D5A6-42EC-B396-AA93EA726648</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jimbojsb/launchrocket</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9AC5F678-D5A6-42EC-B396-AA93EA726648</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9AC5F678-D5A6-42EC-B396-AA93EA726648</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LaunchRocket</string>
+		</dict>
+	</array>
+</dict>
+</plist>

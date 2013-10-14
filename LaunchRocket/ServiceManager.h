@@ -23,7 +23,9 @@
 -(void) cleanServicesFile;
 -(void) renderList;
 -(void) loadServicesFromPlist;
--(void) addService: (NSString *)plistFile imageFile:(NSString *)imageFile;
+-(void) addService: (NSString *)plistFile;
 -(IBAction) handleHomebrewScanClick:(id) sender;
+-(IBAction) handleAddClick:(id) sender;
+
 
 @end

@@ -7,11 +7,10 @@
 //
 
 #import "ServiceManager.h"
-#import "ToggleButton.h"
-#import "SegmentButton.h"
 #import "Service.h"
 #import "ServiceController.h"
 #import "FlippedView.h"
+#import "SegmentButton.h"
 
 @implementation ServiceManager
 
@@ -29,26 +28,6 @@
     [self createServicesFile];
     [self loadServicesFromPlist];
     return self;
-}
-
--(void) handleOnOffClick:(id)sender {
-    SegmentButton *s = (SegmentButton *)sender;
-    ServiceController *sc = [self.serviceControllers objectForKey:s.serviceName];
-    if ([s isSelectedForSegment:0]) {
-        [sc stop];
-    } else {
-        [sc start];
-    }
-}
-
--(void) handleStartAtLoginClick:(id)sender {
-    ToggleButton *t = (ToggleButton *)sender;
-    ServiceController *sc = [self.serviceControllers objectForKey:t.serviceName];
-    if (t.state == NSOnState) {
-        [sc startAtLogin: YES];
-    } else {
-        [sc startAtLogin: NO];
-    }
 }
 
 -(void) createServicesFile {
@@ -76,31 +55,37 @@
 
 -(IBAction) handleHomebrewScanClick:(id)sender {
     NSFileManager *fm = [[NSFileManager alloc] init];
-    NSString *homebrewMappingFile = [[NSString alloc] initWithFormat:@"%@%@", [self.bundle resourcePath], @"/homebrew-mapping.plist"];
-    NSDictionary *homebrewMappings = [[NSDictionary alloc] initWithContentsOfFile:homebrewMappingFile];
     NSDirectoryEnumerator *de = [fm enumeratorAtPath:@"/usr/local/opt"];
     for (NSString *item in de) {
         NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", @"/usr/local/opt/", item, @"/homebrew.mxcl.", item, @".plist"];
         if ([fm fileExistsAtPath:servicePlist]) {
-            NSString *serviceIdentifier = [[NSString alloc] initWithFormat:@"%@%@", @"homebrew.mxcl.", item];
-            NSString *imageFile = [homebrewMappings objectForKey:serviceIdentifier];
-            if (imageFile != nil) {
-                [self addService:servicePlist imageFile:imageFile];
-            }
+            [self addService:servicePlist];
         }
     }
-    [self cleanServicesFile];
     [self loadServicesFromPlist];
     [self renderList];
 }
 
--(void) addService:(NSString *)plistFile imageFile:(NSString *)imageFile {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    NSString *identifier = [plistFile substringToIndex:[plistFile length] - 5];
-    [dict setObject:plistFile forKey:@"plist"];
-    [dict setObject:imageFile forKey:@"image"];
+-(IBAction) handleAddClick:(id)sender {
+    NSOpenPanel *openDialog = [NSOpenPanel openPanel];
+    [openDialog setCanChooseDirectories: NO];
+    [openDialog setCanChooseFiles: YES];
+    [openDialog setDirectoryURL: [NSURL URLWithString:NSHomeDirectory()]];
+    [openDialog setAllowsMultipleSelection:NO];
+    [openDialog setAllowedFileTypes: @[@"plist"]];
+    [openDialog setDirectoryURL:[NSURL URLWithString: NSHomeDirectory()]];
+    NSURL *chosenUrl;
+    if ([openDialog runModal]) {
+        chosenUrl = [openDialog URL];
+        NSString *filePath = [[chosenUrl absoluteString] stringByReplacingOccurrencesOfString:@"file://localhost" withString:@""];
+        [self addService:filePath];
+    }
+}
+
+-(void) addService:(NSString *)plistFile {
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
-    [servicesList setObject:dict forKey:identifier];
+    Service *s = [[Service alloc] initWithPlist:plistFile];
+    [servicesList setObject: s.plist forKey:s.identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
 }
 
@@ -108,24 +93,9 @@
     [self.services release];
     self.services = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:self.servicesFilePath];
-    NSFileManager *fileManager = [[NSFileManager alloc] init];
     for (NSString *key in plistData) {
-        NSMutableDictionary *serviceData = [plistData objectForKey:key];
-        BOOL imageIsLoadable = [fileManager fileExistsAtPath:[serviceData objectForKey:@"image"]];
-        NSImage *image;
-        if (imageIsLoadable) {
-            image = [[NSImage alloc] initWithContentsOfFile:[serviceData objectForKey:@"image"]];
-        } else {
-            NSString *resourcePath = [self.bundle resourcePath];
-            NSString *imagePath = [NSString stringWithFormat:@"%@%@%@", resourcePath, @"/", [serviceData objectForKey:@"image"]];
-            image = [[NSImage alloc] initWithContentsOfFile: imagePath];
-        }
-        if (image == nil) {
-            continue;
-        } else {
-            [serviceData setObject:image forKey:@"image"];
-        }
-        Service *service = [[Service alloc] initWithOptions:serviceData];
+        NSString *plistFile = [plistData objectForKey:key];
+        Service *service = [[Service alloc] initWithPlist:plistFile];
         ServiceController *sc = [[ServiceController alloc] initWithService:service];
         [self.serviceControllers setObject:sc forKey:service.identifier];
         [self.services addObject:service];
@@ -134,7 +104,7 @@
 
 
 -(void) renderList {
-    int serviceListHeight = (int) (70 * [self.services count]);
+    int serviceListHeight = (int) (50 * [self.services count]);
     FlippedView *serviceList = [[FlippedView alloc] initWithFrame:NSMakeRect(0, 0, 400, serviceListHeight)];
     
     int listOffsetPixels = 0;
@@ -142,11 +112,33 @@
         
         ServiceController *sc = [self.serviceControllers objectForKey:service.identifier];
         
-        NSImageView *imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 150, 50)];
-        [imageView setImage:service.image];
-        [serviceList addSubview:imageView];
+        NSTextField *label = [[NSTextField alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 170, 50)];
+        [label setEditable:NO];
+        [label setDrawsBackground:NO];
+        [label setSelectable:NO];
+        [label setStringValue:service.identifier];
+        [label setBezeled:NO];
+        [serviceList addSubview:label];
+        
+        NSTextField *status = [[NSTextField alloc] initWithFrame:NSMakeRect(270, listOffsetPixels, 20, 50)];
+        [status setEditable:NO];
+        [status setDrawsBackground:NO];
+        [status setSelectable:NO];
+        [status setBezeled:NO];
+        if ([sc isStarted]) {
+            [status setTextColor:[NSColor greenColor]];
+            [status setStringValue:@"✔"];
+        } else {
+            [status setTextColor:[NSColor redColor]];
+            [status setStringValue:@"✘"];
+        }
+        [serviceList addSubview:status];
+
+        
+        [serviceList addSubview:label];
         
         SegmentButton *onOff = [[SegmentButton alloc] initWithFrame:NSMakeRect(170, listOffsetPixels, 100, 50)];
+       
         [onOff setSegmentCount:2];
         [onOff setLabel:@"Off" forSegment:0];
         [onOff setLabel:@"On" forSegment:1];
@@ -161,17 +153,6 @@
         }
         [serviceList addSubview:onOff];
         
-        ToggleButton *startAtLogin = [[ToggleButton alloc] initWithFrame:NSMakeRect(275, listOffsetPixels, 100, 50)];
-        [startAtLogin setTitle:@"Start at Login"];
-        [startAtLogin setButtonType:NSPushOnPushOffButton];
-        [startAtLogin setBezelStyle:NSTexturedRoundedBezelStyle];
-        [startAtLogin setTarget:self];
-        [startAtLogin setAction:@selector(handleStartAtLoginClick:)];
-        startAtLogin.serviceName = service.identifier;
-        if ([sc shouldStartAtLogin]) {
-            [startAtLogin setState:NSOnState];
-        }
-        [serviceList addSubview:startAtLogin];
         
         listOffsetPixels += 70;
     }
