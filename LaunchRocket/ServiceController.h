@@ -12,14 +12,11 @@
 @interface ServiceController : NSObject
 
 @property (retain) Service *service;
-@property (retain) NSString *launchAgentPath;
 @property (retain) NSFileManager *fm;
 
 -(id) initWithService:(Service *) theService;
 -(BOOL) isStarted;
--(BOOL) shouldStartAtLogin;
 -(void) start;
 -(void) stop;
--(void) startAtLogin:(BOOL) shouldStartAtLogin;
 
 @end

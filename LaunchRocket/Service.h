@@ -11,9 +11,8 @@
 @interface Service : NSObject
 
 @property (retain) NSString* plist;
-@property (retain) NSImage* image;
 @property (retain) NSString* identifier;
-@property (retain) NSString* plistFilename;
+@property (retain) NSString* name;
 
 - (id) initWithOptions:(NSDictionary*) options;
 

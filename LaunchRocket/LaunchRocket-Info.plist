@@ -30,6 +30,10 @@
 	<string>LaunchRocket.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
 	<string>LaunchRocket</string>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSPrincipalClass</key>
 	<string>LaunchRocket</string>
 </dict>

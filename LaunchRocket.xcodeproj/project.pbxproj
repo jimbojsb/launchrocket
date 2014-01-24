@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03233D5C170544B1009727CB /* beanstalkd.png in Resources */ = {isa = PBXBuildFile; fileRef = 03233D5B170544B1009727CB /* beanstalkd.png */; };
 		03233D5F17054544009727CB /* ServiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 03233D5D17054544009727CB /* ServiceController.h */; };
 		03233D6017054544009727CB /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233D5E17054544009727CB /* ServiceController.m */; };
 		0351F8731705543600CE9495 /* ServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8711705543600CE9495 /* ServiceManager.h */; };
@@ -16,32 +15,29 @@
 		0351F878170558EC00CE9495 /* SegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F876170558EC00CE9495 /* SegmentButton.m */; };
 		0351F87B1705594400CE9495 /* ToggleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8791705594400CE9495 /* ToggleButton.h */; };
 		0351F87C1705594400CE9495 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F87A1705594400CE9495 /* ToggleButton.m */; };
-		0365C9F71726389300905761 /* couchdb.png in Resources */ = {isa = PBXBuildFile; fileRef = 0365C9F61726389300905761 /* couchdb.png */; };
-		03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A051B017091D4B00BDA527 /* homebrew-mapping.plist */; };
-		03BA205F1705EEC2002D5889 /* postgres.png in Resources */ = {isa = PBXBuildFile; fileRef = 03BA205E1705EEC2002D5889 /* postgres.png */; };
+		039F63D918920EF2004C6696 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 039F63D818920EF2004C6696 /* OpenSans-Light.ttf */; };
+		039F63DB18921F19004C6696 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63DA18921F19004C6696 /* rocket.png */; };
+		039F63E51892220F004C6696 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63E21892220F004C6696 /* red.png */; };
+		039F63E61892220F004C6696 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63E31892220F004C6696 /* green.png */; };
+		039F63E71892220F004C6696 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63E41892220F004C6696 /* yellow.png */; };
+		039F63EA18922D1F004C6696 /* OpenSansFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 039F63E818922D1F004C6696 /* OpenSansFont.h */; };
+		039F63EB18922D1F004C6696 /* OpenSansFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 039F63E918922D1F004C6696 /* OpenSansFont.m */; };
+		039F63EE18923821004C6696 /* HorizontalDivider.h in Headers */ = {isa = PBXBuildFile; fileRef = 039F63EC18923821004C6696 /* HorizontalDivider.h */; };
+		039F63EF18923821004C6696 /* HorizontalDivider.m in Sources */ = {isa = PBXBuildFile; fileRef = 039F63ED18923821004C6696 /* HorizontalDivider.m */; };
+		039F63F118923AA8004C6696 /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63F018923AA8004C6696 /* gray.png */; };
 		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
 		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
 		03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DAC16FFD39900E09197 /* InfoPlist.strings */; };
 		03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9DB116FFD39900E09197 /* LaunchRocket.m */; };
 		03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DB516FFD39900E09197 /* LaunchRocket.xib */; };
 		03EE9DBE16FFD40200E09197 /* LaunchRocket.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */; };
-		03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */; };
-		03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */; };
-		03EE9DD416FFFF8200E09197 /* mongodb.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD016FFFF8200E09197 /* mongodb.png */; };
-		03EE9DD516FFFF8200E09197 /* mysql.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD116FFFF8200E09197 /* mysql.png */; };
-		03EE9DD616FFFF8200E09197 /* nginx.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD216FFFF8200E09197 /* nginx.png */; };
-		03EE9DD716FFFF8200E09197 /* redis.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD316FFFF8200E09197 /* redis.png */; };
-		03EE9DD916FFFF9300E09197 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DD816FFFF9300E09197 /* rocket.png */; };
 		03F2EBBA1702997E000077DE /* Service.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBB81702997D000077DE /* Service.h */; };
 		03F2EBBB1702997E000077DE /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBB91702997E000077DE /* Service.m */; };
 		03F2EBC61702A55C000077DE /* FlippedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F2EBC41702A55C000077DE /* FlippedView.h */; };
 		03F2EBC71702A55C000077DE /* FlippedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F2EBC51702A55C000077DE /* FlippedView.m */; };
-		03F2EBCB17053A47000077DE /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EBCA17053A47000077DE /* stop.png */; };
-		03F2EBCD17054180000077DE /* php-fpm.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EBCC17054180000077DE /* php-fpm.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03233D5B170544B1009727CB /* beanstalkd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beanstalkd.png; sourceTree = "<group>"; };
 		03233D5D17054544009727CB /* ServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
 		03233D5E17054544009727CB /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
 		0351F8711705543600CE9495 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
@@ -50,9 +46,16 @@
 		0351F876170558EC00CE9495 /* SegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButton.m; sourceTree = "<group>"; };
 		0351F8791705594400CE9495 /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
 		0351F87A1705594400CE9495 /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
-		0365C9F61726389300905761 /* couchdb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = couchdb.png; sourceTree = "<group>"; };
-		03A051B017091D4B00BDA527 /* homebrew-mapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "homebrew-mapping.plist"; sourceTree = "<group>"; };
-		03BA205E1705EEC2002D5889 /* postgres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postgres.png; sourceTree = "<group>"; };
+		039F63D818920EF2004C6696 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		039F63DA18921F19004C6696 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
+		039F63E21892220F004C6696 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		039F63E31892220F004C6696 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		039F63E41892220F004C6696 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
+		039F63E818922D1F004C6696 /* OpenSansFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSansFont.h; sourceTree = "<group>"; };
+		039F63E918922D1F004C6696 /* OpenSansFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSansFont.m; sourceTree = "<group>"; };
+		039F63EC18923821004C6696 /* HorizontalDivider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalDivider.h; sourceTree = "<group>"; };
+		039F63ED18923821004C6696 /* HorizontalDivider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalDivider.m; sourceTree = "<group>"; };
+		039F63F018923AA8004C6696 /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
 		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EE9DA116FFD39900E09197 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03EE9DA316FFD39900E09197 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -66,19 +69,10 @@
 		03EE9DB116FFD39900E09197 /* LaunchRocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchRocket.m; sourceTree = "<group>"; };
 		03EE9DB616FFD39900E09197 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LaunchRocket.xib; sourceTree = "<group>"; };
 		03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = LaunchRocket.tiff; sourceTree = "<group>"; };
-		03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceEnumerator.h; sourceTree = "<group>"; };
-		03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceEnumerator.m; sourceTree = "<group>"; };
-		03EE9DD016FFFF8200E09197 /* mongodb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mongodb.png; sourceTree = "<group>"; };
-		03EE9DD116FFFF8200E09197 /* mysql.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mysql.png; sourceTree = "<group>"; };
-		03EE9DD216FFFF8200E09197 /* nginx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nginx.png; sourceTree = "<group>"; };
-		03EE9DD316FFFF8200E09197 /* redis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redis.png; sourceTree = "<group>"; };
-		03EE9DD816FFFF9300E09197 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		03F2EBB81702997D000077DE /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		03F2EBB91702997E000077DE /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
 		03F2EBC41702A55C000077DE /* FlippedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlippedView.h; sourceTree = "<group>"; };
 		03F2EBC51702A55C000077DE /* FlippedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlippedView.m; sourceTree = "<group>"; };
-		03F2EBCA17053A47000077DE /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
-		03F2EBCC17054180000077DE /* php-fpm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "php-fpm.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039F63D718920EDC004C6696 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				039F63D818920EF2004C6696 /* OpenSans-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		03EE9D9316FFD39900E09197 = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +136,9 @@
 		03EE9DA916FFD39900E09197 /* LaunchRocket */ = {
 			isa = PBXGroup;
 			children = (
-				03EE9DC516FFD63C00E09197 /* service-icons */,
-				03EE9DBF16FFD62A00E09197 /* ServiceEnumerator.h */,
-				03EE9DC016FFD62A00E09197 /* ServiceEnumerator.m */,
+				039F63E818922D1F004C6696 /* OpenSansFont.h */,
+				039F63E918922D1F004C6696 /* OpenSansFont.m */,
+				039F63D718920EDC004C6696 /* Fonts */,
 				03EE9DB016FFD39900E09197 /* LaunchRocket.h */,
 				03EE9DB116FFD39900E09197 /* LaunchRocket.m */,
 				03EE9DBD16FFD40200E09197 /* LaunchRocket.tiff */,
@@ -154,6 +156,8 @@
 				0351F876170558EC00CE9495 /* SegmentButton.m */,
 				0351F8791705594400CE9495 /* ToggleButton.h */,
 				0351F87A1705594400CE9495 /* ToggleButton.m */,
+				039F63EC18923821004C6696 /* HorizontalDivider.h */,
+				039F63ED18923821004C6696 /* HorizontalDivider.m */,
 			);
 			path = LaunchRocket;
 			sourceTree = "<group>";
@@ -161,29 +165,16 @@
 		03EE9DAA16FFD39900E09197 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03F2EBCA17053A47000077DE /* stop.png */,
-				03EE9DD816FFFF9300E09197 /* rocket.png */,
+				039F63E21892220F004C6696 /* red.png */,
+				039F63F018923AA8004C6696 /* gray.png */,
+				039F63E31892220F004C6696 /* green.png */,
+				039F63E41892220F004C6696 /* yellow.png */,
+				039F63DA18921F19004C6696 /* rocket.png */,
 				03EE9DAB16FFD39900E09197 /* LaunchRocket-Info.plist */,
 				03EE9DAC16FFD39900E09197 /* InfoPlist.strings */,
 				03EE9DAF16FFD39900E09197 /* LaunchRocket-Prefix.pch */,
-				03A051B017091D4B00BDA527 /* homebrew-mapping.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		03EE9DC516FFD63C00E09197 /* service-icons */ = {
-			isa = PBXGroup;
-			children = (
-				03BA205E1705EEC2002D5889 /* postgres.png */,
-				03233D5B170544B1009727CB /* beanstalkd.png */,
-				03F2EBCC17054180000077DE /* php-fpm.png */,
-				0365C9F61726389300905761 /* couchdb.png */,
-				03EE9DD016FFFF8200E09197 /* mongodb.png */,
-				03EE9DD116FFFF8200E09197 /* mysql.png */,
-				03EE9DD216FFFF8200E09197 /* nginx.png */,
-				03EE9DD316FFFF8200E09197 /* redis.png */,
-			);
-			name = "service-icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,9 +184,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03EE9DC116FFD62A00E09197 /* ServiceEnumerator.h in Headers */,
 				03F2EBBA1702997E000077DE /* Service.h in Headers */,
 				03F2EBC61702A55C000077DE /* FlippedView.h in Headers */,
+				039F63EE18923821004C6696 /* HorizontalDivider.h in Headers */,
+				039F63EA18922D1F004C6696 /* OpenSansFont.h in Headers */,
 				03233D5F17054544009727CB /* ServiceController.h in Headers */,
 				0351F8731705543600CE9495 /* ServiceManager.h in Headers */,
 				0351F877170558EC00CE9495 /* SegmentButton.h in Headers */,
@@ -231,7 +223,7 @@
 		03EE9D9416FFD39900E09197 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Josh Butts";
 			};
 			buildConfigurationList = 03EE9D9716FFD39900E09197 /* Build configuration list for PBXProject "LaunchRocket" */;
@@ -256,20 +248,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039F63E61892220F004C6696 /* green.png in Resources */,
+				039F63E71892220F004C6696 /* yellow.png in Resources */,
+				039F63F118923AA8004C6696 /* gray.png in Resources */,
 				03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */,
+				039F63DB18921F19004C6696 /* rocket.png in Resources */,
 				03EE9DB716FFD39900E09197 /* LaunchRocket.xib in Resources */,
+				039F63E51892220F004C6696 /* red.png in Resources */,
 				03EE9DBE16FFD40200E09197 /* LaunchRocket.tiff in Resources */,
-				03EE9DD416FFFF8200E09197 /* mongodb.png in Resources */,
-				03EE9DD516FFFF8200E09197 /* mysql.png in Resources */,
-				03EE9DD616FFFF8200E09197 /* nginx.png in Resources */,
-				03EE9DD716FFFF8200E09197 /* redis.png in Resources */,
-				03EE9DD916FFFF9300E09197 /* rocket.png in Resources */,
-				03F2EBCB17053A47000077DE /* stop.png in Resources */,
-				03F2EBCD17054180000077DE /* php-fpm.png in Resources */,
-				03233D5C170544B1009727CB /* beanstalkd.png in Resources */,
-				03BA205F1705EEC2002D5889 /* postgres.png in Resources */,
-				03A051B117091D4B00BDA527 /* homebrew-mapping.plist in Resources */,
-				0365C9F71726389300905761 /* couchdb.png in Resources */,
+				039F63D918920EF2004C6696 /* OpenSans-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,13 +278,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EE9DB216FFD39900E09197 /* LaunchRocket.m in Sources */,
-				03EE9DC216FFD62A00E09197 /* ServiceEnumerator.m in Sources */,
 				03F2EBBB1702997E000077DE /* Service.m in Sources */,
 				03F2EBC71702A55C000077DE /* FlippedView.m in Sources */,
 				03233D6017054544009727CB /* ServiceController.m in Sources */,
 				0351F8741705543600CE9495 /* ServiceManager.m in Sources */,
+				039F63EF18923821004C6696 /* HorizontalDivider.m in Sources */,
 				0351F878170558EC00CE9495 /* SegmentButton.m in Sources */,
 				0351F87C1705594400CE9495 /* ToggleButton.m in Sources */,
+				039F63EB18922D1F004C6696 /* OpenSansFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +315,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -360,7 +347,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

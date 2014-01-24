@@ -11,7 +11,6 @@
 @implementation ServiceController
 
 @synthesize service;
-@synthesize launchAgentPath;
 @synthesize fm;
 
 -(id) initWithService:(Service *)theService {
@@ -19,7 +18,6 @@
     
     self.service = theService;
     self.fm = [[NSFileManager alloc] init];
-    self.launchAgentPath = [NSString stringWithFormat:@"%@%@%@", NSHomeDirectory(), @"/Library/LaunchAgents/", self.service.plistFilename];
     return self;
 }
 
@@ -44,17 +42,6 @@
     }
     return NO;
     
-}
-
--(BOOL) shouldStartAtLogin {
-    return [self.fm fileExistsAtPath:self.launchAgentPath];
-}
-
--(void) startAtLogin:(BOOL) shouldStartAtLogin {
-    [self.fm removeItemAtPath:self.launchAgentPath error:nil];
-    if (shouldStartAtLogin) {
-        [self.fm createSymbolicLinkAtPath:self.launchAgentPath withDestinationPath:self.service.plist error:nil];
-    }
 }
 
 -(void) stop {
