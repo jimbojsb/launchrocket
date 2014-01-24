@@ -12,11 +12,17 @@
 
 @synthesize service;
 @synthesize statusIndicator;
+@synthesize sudo;
+@synthesize onOff;
+@synthesize status;
 
 -(id) initWithService:(Service *)theService {
     self = [super init];
     
     self.service = theService;
+    if ([self isStarted]) {
+        self.status = 2;
+    }
     return self;
 }
 
@@ -38,13 +44,16 @@
     
     if ([output length] > 0) {
         return YES;
+        self.status = 2;
     }
+    self.status = 0;
     return NO;
     
 }
 
 -(void) stop {
-    [self setStatus:@"yellow"];
+    self.status = 1;
+    [self updateStatusIndicator];
     NSTask *command = [[NSTask alloc] init];
     NSArray *args = [NSArray arrayWithObjects:@"unload", self.service.plist, nil];
     
@@ -52,12 +61,13 @@
     [command setArguments:args];
     [command launch];
     [command waitUntilExit];
-    [self setStatus:@"red"];
+    [self isStarted];
+    [self updateStatusIndicator];
 
 }
 
 -(void) start {
-    [self setStatus:@"yellow"];
+    self.status = 1;
     NSTask *command = [[NSTask alloc] init];
     NSArray *args = [NSArray arrayWithObjects:@"load", self.service.plist, nil];
     
@@ -65,12 +75,26 @@
     [command setArguments:args];
     [command launch];
     [command waitUntilExit];
-    [self setStatus:@"green"];
+    [self isStarted];
+    [self updateStatusIndicator];
 }
 
--(void) setStatus:(NSString *)status {
-    NSImage *image = [[NSImage alloc] initWithContentsOfFile:status];
+-(void) updateStatusIndicator {
+    NSString *statusImageName;
+    switch (self.status) {
+        case 0:
+            statusImageName = @"red";
+            break;
+        case 1:
+            statusImageName = @"yellow";
+            break;
+        case 2:
+            statusImageName = @"green";
+            break;
+    }
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]];
     [self.statusIndicator setImage:image];
+    [self.statusIndicator setNeedsDisplay: YES];
 }
 
 @end

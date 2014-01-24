@@ -14,11 +14,14 @@
 @property (retain) Service *service;
 @property (retain) NSFileManager *fm;
 @property (strong) NSImageView *statusIndicator;
+@property (strong) NSSegmentedControl *onOff;
+@property (strong) NSButton *sudo;
+@property int status;
 
 -(id) initWithService:(Service *) theService;
 -(BOOL) isStarted;
 -(void) start;
 -(void) stop;
--(void) setStatus:(NSString *) status;
+-(void) updateStatusIndicator;
 
 @end

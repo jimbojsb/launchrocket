@@ -132,7 +132,14 @@
         
         ServiceController *sc = [self.serviceControllers objectForKey:service.identifier];
         
-        NSTextField *name = [[NSTextField alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 120, 30)];
+        NSImageView *statusIndicator = [[NSImageView alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 30, 30)];
+        [statusIndicator setImageScaling:NSScaleToFit];
+        [serviceList addSubview:statusIndicator];
+        sc.statusIndicator = statusIndicator;
+        [sc updateStatusIndicator];
+        
+        
+        NSTextField *name = [[NSTextField alloc] initWithFrame:NSMakeRect(40, listOffsetPixels, 120, 30)];
         [name setStringValue:service.name];
         [name setBezeled:NO];
         [name setDrawsBackground:NO];
@@ -141,7 +148,7 @@
         name.font = [OpenSansFont getFontWithSize:16];
         [serviceList addSubview:name];
         
-        SegmentButton *onOff = [[SegmentButton alloc] initWithFrame:NSMakeRect(150, listOffsetPixels, 100, 30)];
+        SegmentButton *onOff = [[SegmentButton alloc] initWithFrame:NSMakeRect(190, listOffsetPixels, 100, 30)];
         [onOff setSegmentCount:2];
         [onOff setLabel:@"Off" forSegment:0];
         [onOff setLabel:@"On" forSegment:1];
@@ -156,15 +163,15 @@
         }
         [serviceList addSubview:onOff];
         
-        NSImageView *statusIndicator = [[NSImageView alloc] initWithFrame:NSMakeRect(170, listOffsetPixels, 30, 30)];
-        NSImage *statusImage = [NSImage alloc];
-        if ([sc isStarted]) {
-            [statusImage initWithContentsOfFile:@"green.png"];
-        } else {
-            [statusImage initWithContentsOfFile:@"red.png"];
-        }
-        [serviceList addSubview:statusIndicator];
-        sc.statusIndicator = statusIndicator;
+ 
+
+        
+        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(300, listOffsetPixels, 80, 30)];
+        [sudo setBezelStyle:NSTexturedRoundedBezelStyle];
+        [sudo setButtonType:NSPushOnPushOffButton];
+        [sudo setTitle:@"As Root"];
+        [serviceList addSubview:sudo];
+        
         
         listOffsetPixels += 37;
 
