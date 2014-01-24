@@ -16,12 +16,13 @@
 @property (retain) NSScrollView* serviceParent;
 @property (retain) NSString *servicesFilePath;
 
--(id) initWithBundle: (NSBundle *)b andView:(NSScrollView *)sv;
+-(id) initWithView:(NSScrollView *)sv;
 -(void) createServicesFile;
 -(void) cleanServicesFile;
 -(void) renderList;
 -(void) loadServicesFromPlist;
 -(void) addService: (NSString *)plistFile;
+-(void) removeService: (NSString *)serviceIdentifier;
 -(IBAction) handleHomebrewScanClick:(id) sender;
 -(IBAction) handleAddPlistClick:(id)sender;
 

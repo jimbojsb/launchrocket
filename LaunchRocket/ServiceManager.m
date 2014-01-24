@@ -20,10 +20,10 @@
 @synthesize bundle;
 @synthesize serviceParent;
 
--(id) initWithBundle:(NSBundle *)b andView:(NSScrollView *)sv {
+-(id) initWithView:(NSScrollView *)sv {
     self = [super init];
     self.serviceControllers = [[NSMutableDictionary alloc] init];
-    self.bundle = b;
+    self.bundle = [NSBundle bundleForClass:[self class]];
     self.serviceParent = sv;
     self.servicesFilePath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Library/Preferences/com.joshbutts.launchrocket.plist"];
     [self createServicesFile];
@@ -93,9 +93,14 @@
     NSString *serviceName = [[filenameComponents objectAtIndex:[filenameComponents count] - 2] capitalizedString];
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
+    
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList setObject:dict forKey:identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+}
+
+-(void) removeService:(NSString *)serviceIdentifier  {
+    
 }
 
 -(void) loadServicesFromPlist {
@@ -151,7 +156,7 @@
  
 
         
-        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(300, listOffsetPixels, 80, 30)];
+        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(290, listOffsetPixels - 1, 80, 30)];
         [sudo setBezelStyle:NSTexturedRoundedBezelStyle];
         [sudo setButtonType:NSPushOnPushOffButton];
         [sudo setTitle:@"As Root"];

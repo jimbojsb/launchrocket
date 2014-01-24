@@ -13,8 +13,9 @@
 @property (retain) NSString* plist;
 @property (retain) NSString* identifier;
 @property (retain) NSString* name;
+@property bool requireSudo;
 
 - (id) initWithOptions:(NSDictionary*) options;
-
+- (void) writePlist;
 
 @end

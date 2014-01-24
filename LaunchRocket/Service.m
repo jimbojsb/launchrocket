@@ -13,6 +13,7 @@
 @synthesize plist;
 @synthesize identifier;
 @synthesize name;
+@synthesize requireSudo;
 
 - (id) initWithOptions:(NSDictionary *)options {
     self = [super init];
@@ -21,6 +22,10 @@
     self.identifier = [plistData objectForKey:@"Label"];
     self.name = [options objectForKey:@"name"];
     return self;    
+}
+
+-(void) writePlist {
+    
 }
 
 @end
