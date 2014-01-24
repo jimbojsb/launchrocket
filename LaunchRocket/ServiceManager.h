@@ -24,5 +24,6 @@
 -(void) loadServicesFromPlist;
 -(void) addService: (NSString *)plistFile;
 -(IBAction) handleHomebrewScanClick:(id) sender;
+-(IBAction) handleAddPlistClick:(id)sender;
 
 @end

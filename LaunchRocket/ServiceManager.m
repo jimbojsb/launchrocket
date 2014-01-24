@@ -7,7 +7,6 @@
 //
 
 #import "ServiceManager.h"
-#import "ToggleButton.h"
 #import "SegmentButton.h"
 #import "Service.h"
 #import "ServiceController.h"
@@ -80,6 +79,23 @@
     [self renderList];
 }
 
+-(IBAction) handleAddPlistClick:(id)sender {
+    NSOpenPanel *filePicker = [NSOpenPanel openPanel];
+    [filePicker setCanChooseDirectories:NO];
+    [filePicker setCanChooseFiles:YES];
+    [filePicker setAllowsMultipleSelection:NO];
+    
+    NSInteger clicked = [filePicker runModal];
+    if (clicked == NSFileHandlingPanelOKButton) {
+        NSString *plistFile = [[filePicker URL] path];
+        [self addService:plistFile];
+        [self cleanServicesFile];
+        [self loadServicesFromPlist];
+        [self renderList];
+    }
+    
+}
+
 -(void) addService:(NSString *)plistFile {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSArray *pathComponents = [plistFile componentsSeparatedByString:@"/"];
@@ -139,6 +155,16 @@
             [onOff setSelected:YES forSegment:0];
         }
         [serviceList addSubview:onOff];
+        
+        NSImageView *statusIndicator = [[NSImageView alloc] initWithFrame:NSMakeRect(170, listOffsetPixels, 30, 30)];
+        NSImage *statusImage = [NSImage alloc];
+        if ([sc isStarted]) {
+            [statusImage initWithContentsOfFile:@"green.png"];
+        } else {
+            [statusImage initWithContentsOfFile:@"red.png"];
+        }
+        [serviceList addSubview:statusIndicator];
+        sc.statusIndicator = statusIndicator;
         
         listOffsetPixels += 37;
 

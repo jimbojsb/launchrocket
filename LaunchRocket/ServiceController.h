@@ -13,10 +13,12 @@
 
 @property (retain) Service *service;
 @property (retain) NSFileManager *fm;
+@property (strong) NSImageView *statusIndicator;
 
 -(id) initWithService:(Service *) theService;
 -(BOOL) isStarted;
 -(void) start;
 -(void) stop;
+-(void) setStatus:(NSString *) status;
 
 @end

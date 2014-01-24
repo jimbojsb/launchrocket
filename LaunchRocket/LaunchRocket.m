@@ -16,6 +16,7 @@
 @synthesize homebrewScan;
 @synthesize launchRocketLabel;
 @synthesize versionNumber;
+@synthesize addPlist;
 
 - (void)mainViewDidLoad
 {
@@ -27,6 +28,9 @@
     [sm cleanServicesFile];
     [self.homebrewScan setTarget:sm];
     [self.homebrewScan setAction:@selector(handleHomebrewScanClick:)];
+    [self.addPlist setTarget:sm];
+    [self.addPlist setAction:@selector(handleAddPlistClick:)];
+    
     self.launchRocketLabel.font = [OpenSansFont getFontWithSize:20];
     self.versionNumber.font = [OpenSansFont getFontWithSize:14];
     [sm renderList];

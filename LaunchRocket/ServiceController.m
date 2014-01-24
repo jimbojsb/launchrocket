@@ -11,13 +11,12 @@
 @implementation ServiceController
 
 @synthesize service;
-@synthesize fm;
+@synthesize statusIndicator;
 
 -(id) initWithService:(Service *)theService {
     self = [super init];
     
     self.service = theService;
-    self.fm = [[NSFileManager alloc] init];
     return self;
 }
 
@@ -45,6 +44,7 @@
 }
 
 -(void) stop {
+    [self setStatus:@"yellow"];
     NSTask *command = [[NSTask alloc] init];
     NSArray *args = [NSArray arrayWithObjects:@"unload", self.service.plist, nil];
     
@@ -52,10 +52,12 @@
     [command setArguments:args];
     [command launch];
     [command waitUntilExit];
+    [self setStatus:@"red"];
 
 }
 
 -(void) start {
+    [self setStatus:@"yellow"];
     NSTask *command = [[NSTask alloc] init];
     NSArray *args = [NSArray arrayWithObjects:@"load", self.service.plist, nil];
     
@@ -63,7 +65,12 @@
     [command setArguments:args];
     [command launch];
     [command waitUntilExit];
+    [self setStatus:@"green"];
+}
 
+-(void) setStatus:(NSString *)status {
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:status];
+    [self.statusIndicator setImage:image];
 }
 
 @end
