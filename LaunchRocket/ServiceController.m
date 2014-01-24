@@ -43,8 +43,8 @@
     NSString *output = [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
     
     if ([output length] > 0) {
-        return YES;
         self.status = 2;
+        return YES;
     }
     self.status = 0;
     return NO;
@@ -68,6 +68,7 @@
 
 -(void) start {
     self.status = 1;
+    [self updateStatusIndicator];
     NSTask *command = [[NSTask alloc] init];
     NSArray *args = [NSArray arrayWithObjects:@"load", self.service.plist, nil];
     
@@ -94,7 +95,25 @@
     }
     NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]];
     [self.statusIndicator setImage:image];
-    [self.statusIndicator setNeedsDisplay: YES];
+    [self.statusIndicator setNeedsDisplay:YES];
+}
+
+-(void) updateOnOffStatus {
+    if (self.status == 0) {
+        [self.onOff setSelected:YES forSegment:0];
+    } else {
+        [self.onOff setSelected:YES forSegment:1];
+    }
+    [self.onOff setNeedsDisplay:YES];
+}
+
+-(void) handleOnOffClick:(id)sender {
+    NSSegmentedControl *s = (NSSegmentedControl *)sender;
+    if ([s isSelectedForSegment:0]) {
+        [self stop];
+    } else {
+        [self start];
+    }
 }
 
 @end

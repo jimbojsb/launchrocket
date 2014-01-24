@@ -11,8 +11,6 @@
 		03233D6017054544009727CB /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233D5E17054544009727CB /* ServiceController.m */; };
 		0351F8731705543600CE9495 /* ServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8711705543600CE9495 /* ServiceManager.h */; };
 		0351F8741705543600CE9495 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F8721705543600CE9495 /* ServiceManager.m */; };
-		0351F877170558EC00CE9495 /* SegmentButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F875170558EC00CE9495 /* SegmentButton.h */; };
-		0351F878170558EC00CE9495 /* SegmentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F876170558EC00CE9495 /* SegmentButton.m */; };
 		039F63D918920EF2004C6696 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 039F63D818920EF2004C6696 /* OpenSans-Light.ttf */; };
 		039F63DB18921F19004C6696 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63DA18921F19004C6696 /* rocket.png */; };
 		039F63E51892220F004C6696 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63E21892220F004C6696 /* red.png */; };
@@ -40,8 +38,6 @@
 		03233D5E17054544009727CB /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
 		0351F8711705543600CE9495 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		0351F8721705543600CE9495 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
-		0351F875170558EC00CE9495 /* SegmentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentButton.h; sourceTree = "<group>"; };
-		0351F876170558EC00CE9495 /* SegmentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButton.m; sourceTree = "<group>"; };
 		039F63D818920EF2004C6696 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		039F63DA18921F19004C6696 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		039F63E21892220F004C6696 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
@@ -148,8 +144,6 @@
 				03233D5E17054544009727CB /* ServiceController.m */,
 				0351F8711705543600CE9495 /* ServiceManager.h */,
 				0351F8721705543600CE9495 /* ServiceManager.m */,
-				0351F875170558EC00CE9495 /* SegmentButton.h */,
-				0351F876170558EC00CE9495 /* SegmentButton.m */,
 				039F63EC18923821004C6696 /* HorizontalDivider.h */,
 				039F63ED18923821004C6696 /* HorizontalDivider.m */,
 			);
@@ -184,7 +178,6 @@
 				039F63EA18922D1F004C6696 /* OpenSansFont.h in Headers */,
 				03233D5F17054544009727CB /* ServiceController.h in Headers */,
 				0351F8731705543600CE9495 /* ServiceManager.h in Headers */,
-				0351F877170558EC00CE9495 /* SegmentButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +269,6 @@
 				03233D6017054544009727CB /* ServiceController.m in Sources */,
 				0351F8741705543600CE9495 /* ServiceManager.m in Sources */,
 				039F63EF18923821004C6696 /* HorizontalDivider.m in Sources */,
-				0351F878170558EC00CE9495 /* SegmentButton.m in Sources */,
 				039F63EB18922D1F004C6696 /* OpenSansFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,6 @@
 //
 
 #import "ServiceManager.h"
-#import "SegmentButton.h"
 #import "Service.h"
 #import "ServiceController.h"
 #import "FlippedView.h"
@@ -30,16 +29,6 @@
     [self createServicesFile];
     [self loadServicesFromPlist];
     return self;
-}
-
--(void) handleOnOffClick:(id)sender {
-    SegmentButton *s = (SegmentButton *)sender;
-    ServiceController *sc = [self.serviceControllers objectForKey:s.serviceName];
-    if ([s isSelectedForSegment:0]) {
-        [sc stop];
-    } else {
-        [sc start];
-    }
 }
 
 -(void) createServicesFile {
@@ -148,19 +137,15 @@
         name.font = [OpenSansFont getFontWithSize:16];
         [serviceList addSubview:name];
         
-        SegmentButton *onOff = [[SegmentButton alloc] initWithFrame:NSMakeRect(190, listOffsetPixels, 100, 30)];
+        NSSegmentedControl *onOff = [[NSSegmentedControl alloc] initWithFrame:NSMakeRect(190, listOffsetPixels, 100, 30)];
         [onOff setSegmentCount:2];
         [onOff setLabel:@"Off" forSegment:0];
         [onOff setLabel:@"On" forSegment:1];
         [onOff setSegmentStyle:NSSegmentStyleCapsule];
-        [onOff setTarget:self];
+        [onOff setTarget:sc];
         [onOff setAction:@selector(handleOnOffClick:)];
-        onOff.serviceName = service.identifier;
-        if ([sc isStarted]) {
-            [onOff setSelected:YES forSegment:1];
-        } else {
-            [onOff setSelected:YES forSegment:0];
-        }
+        sc.onOff = onOff;
+        [sc updateOnOffStatus];
         [serviceList addSubview:onOff];
         
  

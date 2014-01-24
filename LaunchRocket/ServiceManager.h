@@ -17,7 +17,6 @@
 @property (retain) NSString *servicesFilePath;
 
 -(id) initWithBundle: (NSBundle *)b andView:(NSScrollView *)sv;
--(void) handleOnOffClick:(id) sender;
 -(void) createServicesFile;
 -(void) cleanServicesFile;
 -(void) renderList;

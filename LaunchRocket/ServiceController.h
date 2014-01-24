@@ -23,5 +23,8 @@
 -(void) start;
 -(void) stop;
 -(void) updateStatusIndicator;
+-(void) handleOnOffClick:(id)sender;
+-(void) handleSudoClick:(id)sender;
+-(void) updateOnOffStatus;
 
 @end
