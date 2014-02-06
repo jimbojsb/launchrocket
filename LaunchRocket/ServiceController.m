@@ -7,6 +7,8 @@
 //
 
 #import "ServiceController.h"
+#import "Process.h"
+#import "Service.h"
 
 @implementation ServiceController
 
@@ -54,13 +56,14 @@
 -(void) stop {
     self.status = 1;
     [self updateStatusIndicator];
-    NSTask *command = [[NSTask alloc] init];
-    NSArray *args = [NSArray arrayWithObjects:@"unload", self.service.plist, nil];
     
-    [command setLaunchPath:@"/bin/launchctl"];
-    [command setArguments:args];
-    [command launch];
-    [command waitUntilExit];
+    Process *p = [[Process alloc] initWithCommand:@"/bin/launchctl" andArguments:[NSArray arrayWithObjects:@"unload", self.service.plist, nil]];
+    if (self.service.requireSudo) {
+        [p executeSudo];
+    } else {
+        [p execute];
+    }
+    
     [self isStarted];
     [self updateStatusIndicator];
 
@@ -69,61 +72,18 @@
 -(void) start {
     self.status = 1;
     [self updateStatusIndicator];
-    NSTask *command = [[NSTask alloc] init];
-    NSArray *args = [NSArray arrayWithObjects:@"load", self.service.plist, nil];
     
-    [command setLaunchPath:@"/bin/launchctl"];
-    [command setArguments:args];
-    [command launch];
-    [command waitUntilExit];
+    Process *p = [[Process alloc] initWithCommand:@"/bin/launchctl" andArguments:[NSArray arrayWithObjects:@"load", self.service.plist, nil]];
+    if (self.service.requireSudo) {
+        [p executeSudo];
+    } else {
+        [p execute];
+    }
+    
     [self isStarted];
     [self updateStatusIndicator];
 }
 
-//lol, this is the worst idea ever!
-- (BOOL) runProcessAsAdministrator:(NSString*)scriptPath
-                     withArguments:(NSArray *)arguments
-                            output:(NSString **)output
-                  errorDescription:(NSString **)errorDescription {
-    
-    NSString * allArgs = [arguments componentsJoinedByString:@" "];
-    NSString * fullScript = [NSString stringWithFormat:@"%@ %@", scriptPath, allArgs];
-    
-    NSDictionary *errorInfo = [NSDictionary new];
-    NSString *script =  [NSString stringWithFormat:@"do shell script \"%@\" with administrator privileges", fullScript];
-    
-    NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
-    NSAppleEventDescriptor * eventResult = [appleScript executeAndReturnError:&errorInfo];
-    
-    // Check errorInfo
-    if (! eventResult)
-    {
-        // Describe common errors
-        *errorDescription = nil;
-        if ([errorInfo valueForKey:NSAppleScriptErrorNumber])
-        {
-            NSNumber * errorNumber = (NSNumber *)[errorInfo valueForKey:NSAppleScriptErrorNumber];
-            if ([errorNumber intValue] == -128)
-                *errorDescription = @"The administrator password is required to do this.";
-        }
-        
-        // Set error message from provided message
-        if (*errorDescription == nil)
-        {
-            if ([errorInfo valueForKey:NSAppleScriptErrorMessage])
-                *errorDescription =  (NSString *)[errorInfo valueForKey:NSAppleScriptErrorMessage];
-        }
-        
-        return NO;
-    }
-    else
-    {
-        // Set output to the AppleScript's output
-        *output = [eventResult stringValue];
-        
-        return YES;
-    }
-}
 
 -(void) updateStatusIndicator {
     NSString *statusImageName;
