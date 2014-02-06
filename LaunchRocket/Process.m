@@ -30,7 +30,13 @@
 -(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args {
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *commandString = [NSString stringWithFormat:@"%@ %@", command, [args componentsJoinedByString:@" "]];
-    NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n set output to execsudo(\"%@\")\n return output\n end tell\n", sudoHelperPath, commandString];
+    NSString *scriptSource = @"set output to missing value\n";
+    scriptSource = [scriptSource stringByAppendingString:"tell application \""];
+    scriptSource = [scriptSource stringByAppendingString:"tell application \""];
+
+    
+    
+    tell application \"%@\"\n execsudo(\"%@\")\n return output\n end tell\n", sudoHelperPath, commandString];
     NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];

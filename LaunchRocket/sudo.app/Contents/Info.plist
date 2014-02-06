@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>applet</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.joshbutts.launchrocket.helper</string>
+	<string>com.apple.ScriptEditor.id.sudo</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,8 +29,6 @@
 	</dict>
 	<key>LSRequiresCarbon</key>
 	<true/>
-	<key>LSBackgroundOnly</key>
-	<true/>
 	<key>WindowState</key>
 	<dict>
 		<key>dividerCollapsed</key>
@@ -42,9 +40,9 @@
 		<key>positionOfDivider</key>
 		<real>333</real>
 		<key>savedFrame</key>
-		<string>1119 284 602 597 0 0 1920 1058 </string>
+		<string>223 286 602 597 0 0 1920 1058 </string>
 		<key>selectedTabView</key>
-		<string>event log</string>
+		<string>result</string>
 	</dict>
 </dict>
 </plist>
