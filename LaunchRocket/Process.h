@@ -10,12 +10,11 @@
 
 @interface Process : NSObject
 
-@property (strong) NSString *command;
-@property (strong) NSArray *args;
+@property AuthorizationRef authref;
 
 
--(id) initWithCommand:(NSString *)command andArguments:(NSArray *)args;
--(NSString *) execute;
--(NSString *) executeSudo;
+-(NSString *) execute:(NSString *)command withArugments:(NSArray *)args;
+-(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args;;
+-(void) getAuthRef;
 
 @end

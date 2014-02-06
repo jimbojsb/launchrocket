@@ -10,22 +10,16 @@
 
 @implementation Process
 
-@synthesize args;
-@synthesize command;
+@synthesize authref;
 
--(id) initWithCommand:(NSString *)theCommand andArguments:(NSArray *)theArgs {
-    self.command = theCommand;
-    self.args = theArgs;
-    return [super init];
-}
 
--(NSString *) execute {
+-(NSString *) execute:(NSString *)command withArugments:(NSArray *)args {
     NSTask *runCommand = [[NSTask alloc] init];
     
     NSPipe *stdOut = [NSPipe pipe];
     
-    [runCommand setLaunchPath:self.command];
-    [runCommand setArguments:self.args];
+    [runCommand setLaunchPath:command];
+    [runCommand setArguments:args];
     [runCommand setStandardOutput:stdOut];
     [runCommand launch];
     [runCommand waitUntilExit];
@@ -36,8 +30,21 @@
     return output;
 }
 
--(NSString *) executeSudo {
+-(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args {
     
+}
+
+-(void) getAuthRef {
+    OSStatus status;
+    AuthorizationRef authorizationRef;
+    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment,
+                                 kAuthorizationFlagDefaults, &authorizationRef);
+    if (status == errAuthorizationSuccess) {
+        NSLog(@"%@", @"Succesfully got auth ref");
+        self.authref = authorizationRef;
+    } else {
+        NSLog(@"%@", @"Failed to get auth ref");
+    }
 }
 
 @end
