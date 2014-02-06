@@ -14,7 +14,6 @@
 
 
 -(NSString *) execute:(NSString *)command withArugments:(NSArray *)args;
--(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args;;
--(void) getAuthRef;
-
+-(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args;
+-(void) killSudoHelper;
 @end

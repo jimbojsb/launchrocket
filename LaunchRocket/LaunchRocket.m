@@ -23,7 +23,9 @@
 - (void)mainViewDidLoad
 {
     Process *p = [[Process alloc] init];
-    [p executeSudo:@"/usr/bin/touch" withArugments:@[@"/Users/josh/testfile"]];
+    [p executeSudo:@"/usr/bin/say" withArugments:@[@"`whoami`"]];
+    [p killSudoHelper];
+
     
     return;
     

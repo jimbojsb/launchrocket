@@ -25,6 +25,7 @@
 		039F63F118923AA8004C6696 /* gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63F018923AA8004C6696 /* gray.png */; };
 		03A8692B189327D900ED639C /* Process.h in Headers */ = {isa = PBXBuildFile; fileRef = 03A86929189327D900ED639C /* Process.h */; };
 		03A8692C189327D900ED639C /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A8692A189327D900ED639C /* Process.m */; };
+		03D25AA318A35FEF007B253F /* sudo.app in Resources */ = {isa = PBXBuildFile; fileRef = 03D25AA218A35FEF007B253F /* sudo.app */; };
 		03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA116FFD39900E09197 /* Cocoa.framework */; };
 		03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EE9DA316FFD39900E09197 /* PreferencePanes.framework */; };
 		03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03EE9DAC16FFD39900E09197 /* InfoPlist.strings */; };
@@ -56,6 +57,7 @@
 		039F63F018923AA8004C6696 /* gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gray.png; sourceTree = "<group>"; };
 		03A86929189327D900ED639C /* Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Process.h; sourceTree = "<group>"; };
 		03A8692A189327D900ED639C /* Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Process.m; sourceTree = "<group>"; };
+		03D25AA218A35FEF007B253F /* sudo.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = sudo.app; path = LaunchRocket/sudo.app; sourceTree = "<group>"; };
 		03EE9D9E16FFD39900E09197 /* LaunchRocket.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchRocket.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EE9DA116FFD39900E09197 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		03EE9DA316FFD39900E09197 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
@@ -101,6 +103,7 @@
 		03EE9D9316FFD39900E09197 = {
 			isa = PBXGroup;
 			children = (
+				03D25AA218A35FEF007B253F /* sudo.app */,
 				03EE9DA916FFD39900E09197 /* LaunchRocket */,
 				03EE9DA016FFD39900E09197 /* Frameworks */,
 				03EE9D9F16FFD39900E09197 /* Products */,
@@ -251,6 +254,7 @@
 			files = (
 				039F63E61892220F004C6696 /* green.png in Resources */,
 				039F63E71892220F004C6696 /* yellow.png in Resources */,
+				03D25AA318A35FEF007B253F /* sudo.app in Resources */,
 				039F63F118923AA8004C6696 /* gray.png in Resources */,
 				03EE9DAE16FFD39900E09197 /* InfoPlist.strings in Resources */,
 				039F63DB18921F19004C6696 /* rocket.png in Resources */,

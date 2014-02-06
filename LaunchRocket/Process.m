@@ -10,9 +10,6 @@
 
 @implementation Process
 
-@synthesize authref;
-
-
 -(NSString *) execute:(NSString *)command withArugments:(NSArray *)args {
     NSTask *runCommand = [[NSTask alloc] init];
     
@@ -31,20 +28,22 @@
 }
 
 -(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args {
-    
+    NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
+    NSString *commandString = [NSString stringWithFormat:@"%@ %@", command, [args componentsJoinedByString:@" "]];
+    NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n set output to execsudo(\"%@\")\n return output\n end tell\n", sudoHelperPath, commandString];
+    NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
+    NSDictionary *error;
+    NSString *output = [[script executeAndReturnError:&error] stringValue];
+    NSLog(@"%@", output);
+    return output;
 }
 
--(void) getAuthRef {
-    OSStatus status;
-    AuthorizationRef authorizationRef;
-    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment,
-                                 kAuthorizationFlagDefaults, &authorizationRef);
-    if (status == errAuthorizationSuccess) {
-        NSLog(@"%@", @"Succesfully got auth ref");
-        self.authref = authorizationRef;
-    } else {
-        NSLog(@"%@", @"Failed to get auth ref");
-    }
+-(void) killSudoHelper {
+    NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
+    NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
+    NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
+    [script executeAndReturnError:nil];
 }
+
 
 @end
