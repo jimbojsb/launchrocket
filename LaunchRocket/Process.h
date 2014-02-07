@@ -15,5 +15,5 @@
 
 -(NSString *) execute:(NSString *)command withArugments:(NSArray *)args;
 -(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args;
--(void) killSudoHelper;
++(void) killSudoHelper;
 @end

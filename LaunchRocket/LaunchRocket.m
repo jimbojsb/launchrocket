@@ -22,12 +22,6 @@
 
 - (void)mainViewDidLoad
 {
-    Process *p = [[Process alloc] init];
-    [p executeSudo:@"/usr/bin/say" withArugments:@[@"`whoami`"]];
-    [p killSudoHelper];
-
-    
-    return;
     
     ServiceManager *sm = [[ServiceManager alloc] initWithView:self.serviceParent];
     [sm cleanServicesFile];

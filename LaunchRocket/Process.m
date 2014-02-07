@@ -30,21 +30,14 @@
 -(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args {
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *commandString = [NSString stringWithFormat:@"%@ %@", command, [args componentsJoinedByString:@" "]];
-    NSString *scriptSource = @"set output to missing value\n";
-    scriptSource = [scriptSource stringByAppendingString:"tell application \""];
-    scriptSource = [scriptSource stringByAppendingString:"tell application \""];
-
-    
-    
-    tell application \"%@\"\n execsudo(\"%@\")\n return output\n end tell\n", sudoHelperPath, commandString];
-    NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, commandString];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];
-    NSLog(@"%@", output);
     return output;
 }
 
--(void) killSudoHelper {
++(void) killSudoHelper {
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
     NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
