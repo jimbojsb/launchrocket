@@ -18,5 +18,6 @@
 
 
 - (id) initWithOptions:(NSDictionary*) options;
+- (NSMutableDictionary *) getPlistData;
 
 @end

@@ -99,11 +99,19 @@
 }
 
 -(void) saveService:(Service *)service {
-    
+    NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
+    [servicesList setObject:[service getPlistData] forKey:service.identifier];
+    [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    [self loadServicesFromPlist];
+    [self renderList];
 }
 
 -(void) removeService:(Service *)service {
-    
+    NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
+    [servicesList removeObjectForKey:service.identifier];
+    [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    [self loadServicesFromPlist];
+    [self renderList];
 }
 
 

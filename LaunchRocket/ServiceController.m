@@ -142,7 +142,8 @@
     [self.serviceManager saveService:self.service];
 }
 
--(void) handleRemoveClick:(id)sender{
+-(void) handleRemoveClick:(id)sender {
+    [self stop];
     [self.serviceManager removeService:self.service];
 }
 
