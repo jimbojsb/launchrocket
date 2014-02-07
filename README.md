@@ -30,6 +30,7 @@ The binary release should work on Mac OSX 10.8.0 and above, and might even work 
 **Direct Download**
 
 Download and unzip the binary release from the [release page](https://github.com/jimbojsb/launchrocket/releases)
+
 *Note: This zip was created with Finder's "Compress" utility. I've heard that there are issues unzipping it with other tools. I will try to provide a more compatible zipfile on the releases page*
 
 **Homebrew**
