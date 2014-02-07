@@ -164,14 +164,17 @@
         [sudo setTitle:@"As Root"];
         [sudo setTarget:sc];
         [sudo setAction:@selector(handleSudoClick:)];
+        if (sc.service.useSudo) {
+            [sudo setState:NSOnState];
+        }
         [serviceList addSubview:sudo];
         
-        NSButton *runAtLogin = [[NSButton alloc] initWithFrame:NSMakeRect(330, listOffsetPixels - 1, 80, 30)];
-        [runAtLogin setButtonType:NSSwitchButton];
-        [runAtLogin setTitle:@"At Login"];
-        [runAtLogin setTarget:sc];
-        [runAtLogin setAction:@selector(handleRunAtLoginClick:)];
-        [serviceList addSubview:runAtLogin];
+//        NSButton *runAtLogin = [[NSButton alloc] initWithFrame:NSMakeRect(330, listOffsetPixels - 1, 80, 30)];
+//        [runAtLogin setButtonType:NSSwitchButton];
+//        [runAtLogin setTitle:@"At Login"];
+//        [runAtLogin setTarget:sc];
+//        [runAtLogin setAction:@selector(handleRunAtLoginClick:)];
+//        [serviceList addSubview:runAtLogin];
         
         NSButton *remove = [[NSButton alloc] initWithFrame:NSMakeRect(430, listOffsetPixels - 1, 70, 30)];
         [remove setBezelStyle:NSTexturedRoundedBezelStyle];

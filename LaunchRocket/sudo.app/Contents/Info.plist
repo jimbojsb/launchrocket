@@ -29,6 +29,8 @@
 	</dict>
 	<key>LSRequiresCarbon</key>
 	<true/>
+	<key>LSBackgroundOnly</key>
+	<true/>
 	<key>WindowState</key>
 	<dict>
 		<key>dividerCollapsed</key>
