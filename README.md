@@ -42,3 +42,7 @@ Launchrocket is available as a Cask for [Homebrew Cask](https://github.com/phinz
 Further information about running as root
 -----------------------------------------
 LaunchRocket uses an applescript helper to obtain root privileges. This is a hack way of accomplishing it, but it avoids having to actually install a privileged helper outside of the prefpane bundle with SMJobBless and is WAY simpler. This is not the most secure approach and does not use code signing. As such, it is possible that if LaunchRocket's AppleScript helper has cached your privileged authorization, another application maliciously address that helper and request it execute other commands with root level privileges. I considered this a reasonable tradeoff between security, usability and code simplicity. Closing System Preferences or simply switching back to the main view will terminate the helper and drop privileges. 
+
+Contributing
+------------
+Found a bug? File an issue and I'll take a look. Pull requests are welcome.
