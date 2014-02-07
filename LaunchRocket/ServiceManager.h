@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Service.h"
 
 @interface ServiceManager : NSObject
 
-@property (retain) NSMutableDictionary *serviceControllers;
-@property (retain) NSMutableArray *services;
+@property (retain) NSMutableArray *serviceControllers;
 @property (retain) NSBundle *bundle;
 @property (retain) NSScrollView* serviceParent;
 @property (retain) NSString *servicesFilePath;
@@ -22,7 +22,8 @@
 -(void) renderList;
 -(void) loadServicesFromPlist;
 -(void) addService: (NSString *)plistFile;
--(void) removeService: (NSString *)serviceIdentifier;
+-(void) removeService: (Service *)service;
+-(void) saveService: (Service *)service;
 -(IBAction) handleHomebrewScanClick:(id) sender;
 -(IBAction) handleAddPlistClick:(id)sender;
 

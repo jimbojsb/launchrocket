@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "Service.h"
+#import "ServiceManager.h"
 
 @interface ServiceController : NSObject
 
 @property (retain) Service *service;
 @property (retain) NSFileManager *fm;
 @property (strong) NSImageView *statusIndicator;
-@property (strong) NSSegmentedControl *onOff;
-@property (strong) NSButton *sudo;
+@property (strong) NSButton *startStop;
+@property (strong) NSButton *useSudo;
+@property (strong) NSButton *runAtLogin;
+@property (weak) ServiceManager *serviceManager;
+
 @property int status;
 
 -(id) initWithService:(Service *) theService;
@@ -23,8 +27,11 @@
 -(void) start;
 -(void) stop;
 -(void) updateStatusIndicator;
--(void) handleOnOffClick:(id)sender;
+-(void) handleStartStopClick:(id)sender;
 -(void) handleSudoClick:(id)sender;
--(void) updateOnOffStatus;
+-(void) updateStartStopStatus;
+-(void) handleRunAtLoginClick:(id)sender;
+-(void) handleRemoveClick:(id)sender;
+
 
 @end

@@ -16,13 +16,12 @@
 @implementation ServiceManager
 
 @synthesize serviceControllers;
-@synthesize services;
 @synthesize bundle;
 @synthesize serviceParent;
 
 -(id) initWithView:(NSScrollView *)sv {
     self = [super init];
-    self.serviceControllers = [[NSMutableDictionary alloc] init];
+    self.serviceControllers = [[NSMutableArray alloc] init];
     self.bundle = [NSBundle bundleForClass:[self class]];
     self.serviceParent = sv;
     self.servicesFilePath = [NSString stringWithFormat:@"%@%@", NSHomeDirectory(), @"/Library/Preferences/com.joshbutts.launchrocket.plist"];
@@ -99,32 +98,36 @@
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
 }
 
--(void) removeService:(NSString *)serviceIdentifier  {
+-(void) saveService:(Service *)service {
     
 }
 
+-(void) removeService:(Service *)service {
+    
+}
+
+
 -(void) loadServicesFromPlist {
-    [self.services release];
-    self.services = [[NSMutableArray alloc] init];
+    [self.serviceControllers release];
+    self.serviceControllers = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:self.servicesFilePath];
     for (NSString *key in plistData) {
         NSMutableDictionary *serviceData = [plistData objectForKey:key];
         Service *service = [[Service alloc] initWithOptions:serviceData];
         ServiceController *sc = [[ServiceController alloc] initWithService:service];
-        [self.serviceControllers setObject:sc forKey:service.identifier];
-        [self.services addObject:service];
+        sc.serviceManager = self;
+        sc.service = service;
+        [self.serviceControllers addObject:sc];
     }
 }
 
 
 -(void) renderList {
-    int serviceListHeight = (int) (50 * [self.services count]);
-    FlippedView *serviceList = [[FlippedView alloc] initWithFrame:NSMakeRect(0, 0, 400, serviceListHeight)];
+    int serviceListHeight = (int) (50 * [self.serviceControllers count]);
+    FlippedView *serviceList = [[FlippedView alloc] initWithFrame:NSMakeRect(0, 0, 500, serviceListHeight)];
     
     int listOffsetPixels = 0;
-    for (Service *service in self.services) {
-        
-        ServiceController *sc = [self.serviceControllers objectForKey:service.identifier];
+    for (ServiceController *sc in self.serviceControllers) {
         
         NSImageView *statusIndicator = [[NSImageView alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 30, 30)];
         [statusIndicator setImageScaling:NSScaleToFit];
@@ -134,7 +137,7 @@
         
         
         NSTextField *name = [[NSTextField alloc] initWithFrame:NSMakeRect(40, listOffsetPixels, 120, 30)];
-        [name setStringValue:service.name];
+        [name setStringValue:sc.service.name];
         [name setBezeled:NO];
         [name setDrawsBackground:NO];
         [name setEditable:NO];
@@ -142,30 +145,40 @@
         name.font = [OpenSansFont getFontWithSize:16];
         [serviceList addSubview:name];
         
-        NSSegmentedControl *onOff = [[NSSegmentedControl alloc] initWithFrame:NSMakeRect(190, listOffsetPixels, 100, 30)];
-        [onOff setSegmentCount:2];
-        [onOff setLabel:@"Off" forSegment:0];
-        [onOff setLabel:@"On" forSegment:1];
-        [onOff setSegmentStyle:NSSegmentStyleCapsule];
-        [onOff setTarget:sc];
-        [onOff setAction:@selector(handleOnOffClick:)];
-        sc.onOff = onOff;
-        [sc updateOnOffStatus];
-        [serviceList addSubview:onOff];
-        
- 
-
-        
-        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(290, listOffsetPixels - 1, 80, 30)];
-        [sudo setBezelStyle:NSTexturedRoundedBezelStyle];
-        [sudo setButtonType:NSPushOnPushOffButton];
+        NSButton *startStop = [[NSButton alloc] initWithFrame:NSMakeRect(190, listOffsetPixels, 50, 30)];
+        [startStop setBezelStyle:NSTexturedRoundedBezelStyle];
+        [startStop setTarget:sc];
+        [startStop setAction:@selector(handleStartStopClick:)];
+        sc.startStop = startStop;
+        [sc updateStartStopStatus];
+        [serviceList addSubview:startStop];
+    
+        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(260, listOffsetPixels - 1, 80, 30)];
+        [sudo setButtonType:NSSwitchButton];
         [sudo setTitle:@"As Root"];
+        [sudo setTarget:sc];
+        [sudo setAction:@selector(handleSudoClick:)];
         [serviceList addSubview:sudo];
+        
+        NSButton *runAtLogin = [[NSButton alloc] initWithFrame:NSMakeRect(330, listOffsetPixels - 1, 80, 30)];
+        [runAtLogin setButtonType:NSSwitchButton];
+        [runAtLogin setTitle:@"At Login"];
+        [runAtLogin setTarget:sc];
+        [runAtLogin setAction:@selector(handleRunAtLoginClick:)];
+        [serviceList addSubview:runAtLogin];
+        
+        NSButton *remove = [[NSButton alloc] initWithFrame:NSMakeRect(430, listOffsetPixels - 1, 70, 30)];
+        [remove setBezelStyle:NSTexturedRoundedBezelStyle];
+        [remove setTitle:@"Remove"];
+        [remove setTarget:sc];
+        [remove setAction:@selector(handleRemoveClick:)];
+        [serviceList addSubview:remove];
+
         
         
         listOffsetPixels += 37;
 
-        HorizontalDivider *horizontalLine = [[HorizontalDivider alloc] initWithFrame:CGRectMake(0 , listOffsetPixels, 400, 1)];
+        HorizontalDivider *horizontalLine = [[HorizontalDivider alloc] initWithFrame:CGRectMake(0 , listOffsetPixels, 500, 1)];
         [serviceList addSubview:horizontalLine];
 
         listOffsetPixels += 10;

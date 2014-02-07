@@ -28,44 +28,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView id="99">
-                        <rect key="frame" x="13" y="118" width="212" height="230"/>
+                        <rect key="frame" x="13" y="225" width="113" height="123"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rocket" id="100"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="101">
-                        <rect key="frame" x="90" y="131" width="129" height="30"/>
+                        <rect key="frame" x="10" y="187" width="118" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="LaunchRocket" id="102">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="LaunchRocket" id="102">
                             <font key="font" metaFont="system" size="16"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="139">
-                        <rect key="frame" x="115" y="110" width="104" height="20"/>
+                        <rect key="frame" x="17" y="174" width="104" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Version 0.2" id="140">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Version 0.5" id="140">
                             <font key="font" metaFont="system" size="10"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="107">
-                        <rect key="frame" x="231" y="20" width="5" height="328"/>
+                        <rect key="frame" x="140" y="20" width="5" height="328"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="108">
-                        <rect key="frame" x="247" y="20" width="401" height="328"/>
+                        <rect key="frame" x="151" y="20" width="500" height="328"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="oWp-Xi-IGh">
-                            <rect key="frame" x="0.0" y="0.0" width="401" height="328"/>
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="328"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view id="111" customClass="NSScrollView">
-                                    <rect key="frame" x="0.0" y="0.0" width="389" height="328"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="488" height="328"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </subviews>
@@ -80,15 +80,15 @@
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="141">
-                        <rect key="frame" x="13" y="55" width="204" height="25"/>
+                        <rect key="frame" x="12" y="55" width="115" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundTextured" title="Auto-scan Homebrew" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="142">
+                        <buttonCell key="cell" type="roundTextured" title="Scan Homebrew" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="142">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" id="kBv-Li-hxA">
-                        <rect key="frame" x="13" y="18" width="204" height="25"/>
+                        <rect key="frame" x="13" y="18" width="113" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="roundTextured" title="Add .plist" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ft4-2B-nIh">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

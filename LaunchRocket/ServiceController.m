@@ -14,9 +14,11 @@
 
 @synthesize service;
 @synthesize statusIndicator;
-@synthesize sudo;
-@synthesize onOff;
+@synthesize useSudo;
+@synthesize startStop;
 @synthesize status;
+@synthesize runAtLogin;
+@synthesize serviceManager;
 
 -(id) initWithService:(Service *)theService {
     self = [super init];
@@ -29,20 +31,18 @@
 }
 
 -(BOOL) isStarted {
-    NSTask *command = [[NSTask alloc] init];
-    NSString *bashCommand = [NSString stringWithFormat:@"%@%@", @"/bin/launchctl list | grep ", self.service.identifier];
-    NSArray *args = [NSArray arrayWithObjects:@"-c", bashCommand, nil];
-    NSPipe *stdOut = [NSPipe pipe];
     
-    [command setLaunchPath:@"/bin/bash"];
-    [command setArguments:args];
-    [command setStandardOutput:stdOut];
-    [command launch];
-    [command waitUntilExit];
+    Process *p = [[Process alloc] init];
     
-    NSFileHandle *read = [stdOut fileHandleForReading];
-    NSData *readData = [read readDataToEndOfFile];
-    NSString *output = [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
+    NSString *output;
+    NSMutableString *launchCtlCommand = [[NSMutableString alloc] initWithString:@"/bin/launchctl list | grep "];
+    [launchCtlCommand appendString:self.service.identifier];
+    
+    if (self.service.useSudo) {
+        output = [p executeSudo:@"/bin/bash" withArguments:@[@"-c", launchCtlCommand]];
+    } else {
+        output = [p execute:@"/bin/bash" withArguments:@[@"-c", launchCtlCommand]];
+    }
     
     if ([output length] > 0) {
         self.status = 2;
@@ -57,15 +57,16 @@
     self.status = 1;
     [self updateStatusIndicator];
     
-    Process *p = [[Process alloc] initWithCommand:@"/bin/launchctl" andArguments:[NSArray arrayWithObjects:@"unload", self.service.plist, nil]];
-    if (self.service.requireSudo) {
-        [p executeSudo];
+    Process *p = [[Process alloc] init];
+    if (self.service.useSudo) {
+        [p executeSudo:@"/bin/launchctl" withArguments: @[@"unload", self.service.plist]];
     } else {
-        [p execute];
+        [p execute:@"/bin/launchctl" withArguments:@[@"unload", self.service.plist]];
     }
     
     [self isStarted];
     [self updateStatusIndicator];
+    [self updateStartStopStatus];
 
 }
 
@@ -73,15 +74,16 @@
     self.status = 1;
     [self updateStatusIndicator];
     
-    Process *p = [[Process alloc] initWithCommand:@"/bin/launchctl" andArguments:[NSArray arrayWithObjects:@"load", self.service.plist, nil]];
-    if (self.service.requireSudo) {
-        [p executeSudo];
+    Process *p = [[Process alloc] init];
+    if (self.service.useSudo) {
+        [p executeSudo:@"/bin/launchctl" withArguments: @[@"load", self.service.plist]];
     } else {
-        [p execute];
+        [p execute:@"/bin/launchctl" withArguments:@[@"load", self.service.plist]];
     }
     
     [self isStarted];
     [self updateStatusIndicator];
+    [self updateStartStopStatus];
 }
 
 
@@ -103,32 +105,45 @@
     [self.statusIndicator setNeedsDisplay:YES];
 }
 
--(void) updateOnOffStatus {
+-(void) updateStartStopStatus {
     if (self.status == 0) {
-        [self.onOff setSelected:YES forSegment:0];
+        [self.startStop setTitle:@"Start"];
     } else {
-        [self.onOff setSelected:YES forSegment:1];
+        [self.startStop setTitle:@"Stop"];
     }
-    [self.onOff setNeedsDisplay:YES];
+    [self.startStop setNeedsDisplay:YES];
 }
 
--(void) handleOnOffClick:(id)sender {
-    NSSegmentedControl *s = (NSSegmentedControl *)sender;
-    if ([s isSelectedForSegment:0]) {
-        [self stop];
-    } else {
+-(void) handleStartStopClick:(id)sender {
+    if (self.status == 0) {
         [self start];
+    } else {
+        [self stop];
     }
 }
 
 -(void) handleSudoClick:(id)sender {
     NSButton *b = (NSButton *)sender;
     if (b.state == NSOnState) {
-        service.requireSudo = YES;
+        self.service.useSudo = YES;
     } else {
-        service.requireSudo = NO;
+        self.service.useSudo = NO;
     }
-    [Service writePlist];
+    [self.serviceManager saveService:self.service];
+}
+
+-(void) handleRunAtLoginClick:(id)sender {
+    NSButton *b = (NSButton *)sender;
+    if (b.state == NSOnState) {
+        self.service.runAtLogin = YES;
+    } else {
+        self.service.runAtLogin = NO;
+    }
+    [self.serviceManager saveService:self.service];
+}
+
+-(void) handleRemoveClick:(id)sender{
+    [self.serviceManager removeService:self.service];
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation Process
 
--(NSString *) execute:(NSString *)command withArugments:(NSArray *)args {
+-(NSString *) execute:(NSString *)command withArguments:(NSArray *)args {
     NSTask *runCommand = [[NSTask alloc] init];
     
     NSPipe *stdOut = [NSPipe pipe];
@@ -27,7 +27,7 @@
     return output;
 }
 
--(NSString *) executeSudo:(NSString *)command withArugments:(NSArray *)args {
+-(NSString *) executeSudo:(NSString *)command withArguments:(NSArray *)args {
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *commandString = [NSString stringWithFormat:@"%@ %@", command, [args componentsJoinedByString:@" "]];
     NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, commandString];

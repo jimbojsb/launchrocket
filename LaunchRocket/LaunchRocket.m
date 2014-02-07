@@ -30,9 +30,13 @@
     [self.addPlist setTarget:sm];
     [self.addPlist setAction:@selector(handleAddPlistClick:)];
     
-    self.launchRocketLabel.font = [OpenSansFont getFontWithSize:20];
-    self.versionNumber.font = [OpenSansFont getFontWithSize:14];
+    self.launchRocketLabel.font = [OpenSansFont getFontWithSize:16];
+    self.versionNumber.font = [OpenSansFont getFontWithSize:13];
     [sm renderList];
+}
+
+- (void)didUnselect {
+    [Process killSudoHelper];
 }
 
 @end

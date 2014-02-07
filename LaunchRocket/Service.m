@@ -13,7 +13,8 @@
 @synthesize plist;
 @synthesize identifier;
 @synthesize name;
-@synthesize requireSudo;
+@synthesize useSudo;
+@synthesize runAtLogin;
 
 - (id) initWithOptions:(NSDictionary *)options {
     self = [super init];
@@ -25,6 +26,10 @@
 }
 
 -(void) writePlist {
+    
+}
+
+-(void) remove {
     
 }
 
