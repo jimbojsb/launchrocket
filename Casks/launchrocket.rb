@@ -1,4 +1,4 @@
-class Choosy < Cask
+class Launchrocket < Cask
   url 'https://github.com/jimbojsb/launchrocket/releases/download/v0.5/LaunchRocket.prefPane.zip'
   homepage 'http://guthub.com/jimbojsb/launchrocket'
   version '0.5'
