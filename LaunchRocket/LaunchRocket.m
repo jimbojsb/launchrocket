@@ -22,7 +22,6 @@
 
 - (void)mainViewDidLoad
 {
-    
     ServiceManager *sm = [[ServiceManager alloc] initWithView:self.serviceParent];
     [sm cleanServicesFile];
     [self.homebrewScan setTarget:sm];

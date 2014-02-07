@@ -13,7 +13,7 @@
 @property AuthorizationRef authref;
 
 
--(NSString *) execute:(NSString *)command withArguments:(NSArray *)args;
--(NSString *) executeSudo:(NSString *)command withArguments:(NSArray *)args;
+-(NSString *) execute:(NSString *)command;
+-(NSString *) executeSudo:(NSString *)command;
 +(void) killSudoHelper;
 @end

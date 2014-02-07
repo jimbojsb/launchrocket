@@ -39,9 +39,9 @@
     [launchCtlCommand appendString:self.service.identifier];
     
     if (self.service.useSudo) {
-        output = [p executeSudo:@"/bin/bash" withArguments:@[@"-c", launchCtlCommand]];
+        output = [p executeSudo:launchCtlCommand];
     } else {
-        output = [p execute:@"/bin/bash" withArguments:@[@"-c", launchCtlCommand]];
+        output = [p execute:launchCtlCommand];
     }
     
     if ([output length] > 0) {
@@ -57,11 +57,19 @@
     self.status = 1;
     [self updateStatusIndicator];
     
+    
     Process *p = [[Process alloc] init];
     if (self.service.useSudo) {
-        [p executeSudo:@"/bin/launchctl" withArguments: @[@"unload", self.service.plist]];
+        NSString *tmpPlist = [NSString stringWithFormat:@"/tmp/%@.plist", self.service.identifier];
+        NSString *copyCommand = [NSString stringWithFormat:@"cp %@ %@", self.service.plist, tmpPlist];
+        NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl unload %@", tmpPlist];
+        NSString *cleanupCommand = [NSString stringWithFormat:@"rm %@", tmpPlist];
+        [p executeSudo:copyCommand];
+        [p executeSudo:runCommand];
+        [p executeSudo:cleanupCommand];
     } else {
-        [p execute:@"/bin/launchctl" withArguments:@[@"unload", self.service.plist]];
+        NSString *command = [NSString stringWithFormat:@"/bin/launchctl unload %@", self.service.plist];
+        [p execute:command];
     }
     
     [self isStarted];
@@ -76,9 +84,16 @@
     
     Process *p = [[Process alloc] init];
     if (self.service.useSudo) {
-        [p executeSudo:@"/bin/launchctl" withArguments: @[@"load", self.service.plist]];
+        NSString *tmpPlist = [NSString stringWithFormat:@"/tmp/%@.plist", self.service.identifier];
+        NSString *copyCommand = [NSString stringWithFormat:@"cp %@ %@", self.service.plist, tmpPlist];
+        NSString *runCommand = [NSString stringWithFormat:@"/bin/launchctl load %@", tmpPlist];
+        NSString *cleanupCommand = [NSString stringWithFormat:@"rm %@", tmpPlist];
+        [p executeSudo:copyCommand];
+        [p executeSudo:runCommand];
+        [p executeSudo:cleanupCommand];
     } else {
-        [p execute:@"/bin/launchctl" withArguments:@[@"load", self.service.plist]];
+        NSString *command = [NSString stringWithFormat:@"/bin/launchctl load %@", self.service.plist];
+        [p execute:command];
     }
     
     [self isStarted];

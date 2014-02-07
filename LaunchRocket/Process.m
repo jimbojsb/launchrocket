@@ -10,27 +10,18 @@
 
 @implementation Process
 
--(NSString *) execute:(NSString *)command withArguments:(NSArray *)args {
-    NSTask *runCommand = [[NSTask alloc] init];
-    
-    NSPipe *stdOut = [NSPipe pipe];
-    
-    [runCommand setLaunchPath:command];
-    [runCommand setArguments:args];
-    [runCommand setStandardOutput:stdOut];
-    [runCommand launch];
-    [runCommand waitUntilExit];
-    
-    NSFileHandle *read = [stdOut fileHandleForReading];
-    NSData *readData = [read readDataToEndOfFile];
-    NSString *output = [[NSString alloc] initWithData:readData encoding:NSUTF8StringEncoding];
+-(NSString *) execute:(NSString *)command {
+    NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec(\"%@\")\n end tell\n", sudoHelperPath, command];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
+    NSDictionary *error;
+    NSString *output = [[script executeAndReturnError:&error] stringValue];
     return output;
 }
 
--(NSString *) executeSudo:(NSString *)command withArguments:(NSArray *)args {
+-(NSString *) executeSudo:(NSString *)command {
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
-    NSString *commandString = [NSString stringWithFormat:@"%@ %@", command, [args componentsJoinedByString:@" "]];
-    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, commandString];
+    NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, command];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];

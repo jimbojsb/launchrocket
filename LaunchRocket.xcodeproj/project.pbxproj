@@ -11,7 +11,6 @@
 		03233D6017054544009727CB /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03233D5E17054544009727CB /* ServiceController.m */; };
 		0351F8731705543600CE9495 /* ServiceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0351F8711705543600CE9495 /* ServiceManager.h */; };
 		0351F8741705543600CE9495 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351F8721705543600CE9495 /* ServiceManager.m */; };
-		039EEF88189A1E1700B5F169 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039EEF87189A1E1700B5F169 /* Security.framework */; };
 		039EEF8A189A1E1E00B5F169 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039EEF89189A1E1E00B5F169 /* ServiceManagement.framework */; };
 		039F63D918920EF2004C6696 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 039F63D818920EF2004C6696 /* OpenSans-Light.ttf */; };
 		039F63DB18921F19004C6696 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 039F63DA18921F19004C6696 /* rocket.png */; };
@@ -43,7 +42,6 @@
 		03233D5E17054544009727CB /* ServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
 		0351F8711705543600CE9495 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		0351F8721705543600CE9495 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
-		039EEF87189A1E1700B5F169 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		039EEF89189A1E1E00B5F169 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		039F63D818920EF2004C6696 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		039F63DA18921F19004C6696 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				039EEF8A189A1E1E00B5F169 /* ServiceManagement.framework in Frameworks */,
-				039EEF88189A1E1700B5F169 /* Security.framework in Frameworks */,
 				03EE9DA216FFD39900E09197 /* Cocoa.framework in Frameworks */,
 				03EE9DA416FFD39900E09197 /* PreferencePanes.framework in Frameworks */,
 			);
@@ -122,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				039EEF89189A1E1E00B5F169 /* ServiceManagement.framework */,
-				039EEF87189A1E1700B5F169 /* Security.framework */,
 				03EE9DA116FFD39900E09197 /* Cocoa.framework */,
 				03EE9DA316FFD39900E09197 /* PreferencePanes.framework */,
 				03EE9DA516FFD39900E09197 /* Other Frameworks */,
