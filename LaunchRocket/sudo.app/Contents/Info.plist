@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSBackgroundOnly</key>
+	<true/>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -29,8 +31,6 @@
 	</dict>
 	<key>LSRequiresCarbon</key>
 	<true/>
-	<key>LSBackgroundOnly</key>
-	<true/>
 	<key>WindowState</key>
 	<dict>
 		<key>dividerCollapsed</key>
@@ -40,9 +40,9 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>333</real>
+		<real>397</real>
 		<key>savedFrame</key>
-		<string>1012 288 602 597 0 0 1920 1058 </string>
+		<string>436 340 941 697 0 0 1920 1058 </string>
 		<key>selectedTabView</key>
 		<string>result</string>
 	</dict>
