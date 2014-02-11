@@ -86,7 +86,7 @@
     }
     
     
-    NSString *optPath = [NSString stringWithFormat:@"%@/opt", homebrewPath];
+    NSString *optPath = [NSString stringWithFormat:@"%@/opt/", homebrewPath];
     NSFileManager *fm = [[NSFileManager alloc] init];
     NSDirectoryEnumerator *de = [fm enumeratorAtPath:optPath];
     for (NSString *item in de) {
