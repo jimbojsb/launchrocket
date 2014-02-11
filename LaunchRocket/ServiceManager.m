@@ -12,6 +12,7 @@
 #import "FlippedView.h"
 #import "OpenSansFont.h"
 #import "HorizontalDivider.h"
+#import "Process.h"
 
 @implementation ServiceManager
 
@@ -54,10 +55,13 @@
 }
 
 -(IBAction) handleHomebrewScanClick:(id)sender {
+    Process *p = [[Process alloc] init];
+    NSString *homebrewPath = [p execute:@"source ~/.bash_profile && source ~/.bashrc && brew --prefix"];
+    NSString *optPath = [NSString stringWithFormat:@"%@/opt", homebrewPath];
     NSFileManager *fm = [[NSFileManager alloc] init];
-    NSDirectoryEnumerator *de = [fm enumeratorAtPath:@"/usr/local/opt"];
+    NSDirectoryEnumerator *de = [fm enumeratorAtPath:optPath];
     for (NSString *item in de) {
-        NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", @"/usr/local/opt/", item, @"/homebrew.mxcl.", item, @".plist"];
+        NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", optPath, item, @"/homebrew.mxcl.", item, @".plist"];
         if ([fm fileExistsAtPath:servicePlist]) {
             [self addService:servicePlist];
         }
