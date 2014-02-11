@@ -12,6 +12,7 @@
 #import "FlippedView.h"
 #import "OpenSansFont.h"
 #import "HorizontalDivider.h"
+#import "Process.h"
 
 @implementation ServiceManager
 
@@ -54,10 +55,42 @@
 }
 
 -(IBAction) handleHomebrewScanClick:(id)sender {
+    
+    Process *p = [[Process alloc] init];
+    
+    // try the most common way to get your homebrew prefix
+    NSString *homebrewPath = [p execute:@"source ~/.bash_profile && source ~/.bashrc && brew --prefix"];
+    
+    //if that doesn't work, we need the path to your brew executable
+    if ([homebrewPath isEqualToString:@""]) {
+        NSOpenPanel *brewPicker = [NSOpenPanel openPanel];
+        [brewPicker setCanChooseDirectories:NO];
+        [brewPicker setCanChooseFiles:YES];
+        [brewPicker setAllowsMultipleSelection:NO];
+        [brewPicker setDirectoryURL:[NSURL URLWithString:@"/usr"]];
+        
+        NSInteger clicked = [brewPicker runModal];
+        if (clicked == NSFileHandlingPanelOKButton) {
+            NSString *brew = [[brewPicker URL] path];
+            homebrewPath = [p execute:[NSString stringWithFormat:@"%@%@", brew, @" --prefix"]];
+        }
+    }
+    
+    // give up
+    if ([homebrewPath isEqualToString:@""]) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"We couldn't find your homebrew prefix using your Bash profile or the file you selected."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert beginSheetModalForWindow:[self.serviceParent window] completionHandler:nil];
+    }
+    
+    
+    NSString *optPath = [NSString stringWithFormat:@"%@/opt/", homebrewPath];
     NSFileManager *fm = [[NSFileManager alloc] init];
-    NSDirectoryEnumerator *de = [fm enumeratorAtPath:@"/usr/local/opt"];
+    NSDirectoryEnumerator *de = [fm enumeratorAtPath:optPath];
     for (NSString *item in de) {
-        NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", @"/usr/local/opt/", item, @"/homebrew.mxcl.", item, @".plist"];
+        NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", optPath, item, @"/homebrew.mxcl.", item, @".plist"];
         if ([fm fileExistsAtPath:servicePlist]) {
             [self addService:servicePlist];
         }
