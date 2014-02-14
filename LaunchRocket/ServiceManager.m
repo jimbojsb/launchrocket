@@ -60,9 +60,20 @@
     
     // try the most common way to get your homebrew prefix
     NSString *homebrewPath = [p execute:@"source ~/.bash_profile && source ~/.bashrc && brew --prefix"];
+    homebrewPath = @"";
     
     //if that doesn't work, we need the path to your brew executable
     if ([homebrewPath isEqualToString:@""]) {
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:@"We couldn't automatically find your Homebrew path. Please select your 'brew' executable"];
+        NSInteger response = [alert runModal];
+        if (response == 1001) {
+            return;
+        }
+        
         NSOpenPanel *brewPicker = [NSOpenPanel openPanel];
         [brewPicker setCanChooseDirectories:NO];
         [brewPicker setCanChooseFiles:YES];
