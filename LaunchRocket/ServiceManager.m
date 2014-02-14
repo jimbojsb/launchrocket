@@ -57,9 +57,19 @@
 -(IBAction) handleHomebrewScanClick:(id)sender {
     
     Process *p = [[Process alloc] init];
+    NSFileManager *fm = [[NSFileManager alloc] init];
     
     // try the most common way to get your homebrew prefix
-    NSString *homebrewPath = [p execute:@"source ~/.bash_profile && source ~/.bashrc && brew --prefix"];
+    NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile"];
+    NSMutableArray *filesToSource = [[NSMutableArray alloc] init];
+    for (NSString *file in filesToMaybeSource) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), file];
+        if ([fm fileExistsAtPath:filePath]) {
+            [filesToSource addObject:[NSString stringWithFormat:@"source %@", filePath]];
+        }
+    }
+    NSString *homebrewBashCommand = [NSString stringWithFormat:@"%@ && brew --prefix", [filesToSource componentsJoinedByString:@" && "]];
+    NSString *homebrewPath = [p execute:homebrewBashCommand];
     homebrewPath = @"";
     
     //if that doesn't work, we need the path to your brew executable
@@ -98,7 +108,6 @@
     
     
     NSString *optPath = [NSString stringWithFormat:@"%@/opt/", homebrewPath];
-    NSFileManager *fm = [[NSFileManager alloc] init];
     NSDirectoryEnumerator *de = [fm enumeratorAtPath:optPath];
     for (NSString *item in de) {
         NSString *servicePlist = [NSString stringWithFormat:@"%@%@%@%@%@", optPath, item, @"/homebrew.mxcl.", item, @".plist"];
