@@ -70,7 +70,6 @@
     }
     NSString *homebrewBashCommand = [NSString stringWithFormat:@"%@ && brew --prefix", [filesToSource componentsJoinedByString:@" && "]];
     NSString *homebrewPath = [p execute:homebrewBashCommand];
-    homebrewPath = @"";
     
     //if that doesn't work, we need the path to your brew executable
     if ([homebrewPath isEqualToString:@""]) {
