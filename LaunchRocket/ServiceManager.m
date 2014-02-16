@@ -114,6 +114,17 @@
             [self addService:servicePlist];
         }
     }
+    
+    //handle special plists, most specifically, josegonzales/php stuff
+    NSString *specialPlistPath = [[self bundle] pathForResource:@"special-plists" ofType:@"plist"];
+    NSArray *additionalPlists = [NSArray arrayWithContentsOfFile:specialPlistPath];
+    for (NSString *plist in additionalPlists) {
+        NSString *servicePlist = [NSString stringWithFormat:@"%@%@", optPath, plist];
+        if ([fm fileExistsAtPath:servicePlist]) {
+            [self addService:servicePlist];
+        }
+    }
+    
     [self cleanServicesFile];
     [self loadServicesFromPlist];
     [self renderList];
@@ -228,7 +239,7 @@
 //        [runAtLogin setAction:@selector(handleRunAtLoginClick:)];
 //        [serviceList addSubview:runAtLogin];
         
-        NSButton *remove = [[NSButton alloc] initWithFrame:NSMakeRect(430, listOffsetPixels - 1, 70, 30)];
+        NSButton *remove = [[NSButton alloc] initWithFrame:NSMakeRect(410, listOffsetPixels, 70, 30)];
         [remove setBezelStyle:NSTexturedRoundedBezelStyle];
         [remove setTitle:@"Remove"];
         [remove setTarget:sc];
