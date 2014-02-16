@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>php53/homebrew-php.josegonzalez.php53.plist</string>
+	<string>php54/homebrew-php.josegonzalez.php54.plist</string>
+	<string>php55/homebrew-php.josegonzalez.php55.plist</string>
+</array>
+</plist>
