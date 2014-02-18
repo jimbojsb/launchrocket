@@ -21,6 +21,8 @@
 @synthesize serviceParent;
 
 -(id) initWithView:(NSScrollView *)sv {
+
+    NSLog(@"%@", @"Initializing service mananger");
     self = [super init];
     self.serviceControllers = [[NSMutableArray alloc] init];
     self.bundle = [NSBundle bundleForClass:[self class]];
@@ -32,6 +34,8 @@
 }
 
 -(void) createServicesFile {
+
+    NSLog(@"%@", @"Creating preferences file");
     NSFileManager *fm = [[NSFileManager alloc] init];
     if (![fm fileExistsAtPath:self.servicesFilePath]) {
         [[[NSMutableDictionary alloc] init] writeToFile:self.servicesFilePath atomically:YES];
@@ -39,6 +43,8 @@
 }
 
 -(void) cleanServicesFile {
+
+    NSLog(@"%@", @"Removing non-existent services from preferences");
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     NSFileManager *fm = [[NSFileManager alloc] init];
     NSMutableArray *servicesToRemove = [[NSMutableArray alloc] init];
@@ -59,6 +65,7 @@
     Process *p = [[Process alloc] init];
     NSFileManager *fm = [[NSFileManager alloc] init];
     
+    NSLog(@"%@", @"Discovering bash profile files");
     // try the most common way to get your homebrew prefix
     NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile"];
     NSMutableArray *filesToSource = [[NSMutableArray alloc] init];
@@ -68,12 +75,19 @@
             [filesToSource addObject:[NSString stringWithFormat:@"source %@", filePath]];
         }
     }
+    
     NSString *homebrewBashCommand = [NSString stringWithFormat:@"%@ && brew --prefix", [filesToSource componentsJoinedByString:@" && "]];
+    NSLog(@"%@%@", @"Resolved homebrew path command: ", homebrewBashCommand);
+
+    
     NSString *homebrewPath = [p execute:homebrewBashCommand];
+    NSLog(@"%@%@", @"Homebrew prefix: ", homebrewPath);
+
     
     //if that doesn't work, we need the path to your brew executable
     if ([homebrewPath isEqualToString:@""]) {
         
+        NSLog(@"%@", @"Homebrew path not found on initial attempt");
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Cancel"];
@@ -83,6 +97,7 @@
             return;
         }
         
+        NSLog(@"%@", @"Waiting for file selection");
         NSOpenPanel *brewPicker = [NSOpenPanel openPanel];
         [brewPicker setCanChooseDirectories:NO];
         [brewPicker setCanChooseFiles:YES];
@@ -92,7 +107,10 @@
         NSInteger clicked = [brewPicker runModal];
         if (clicked == NSFileHandlingPanelOKButton) {
             NSString *brew = [[brewPicker URL] path];
+            NSLog(@"%@%@", @"Path to brew: ", homebrewPath);
+
             homebrewPath = [p execute:[NSString stringWithFormat:@"%@%@", brew, @" --prefix"]];
+            NSLog(@"%@%@", @"Homebrew prefix: ", homebrewPath);
         }
     }
     
