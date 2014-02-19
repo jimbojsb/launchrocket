@@ -21,6 +21,8 @@
 @synthesize serviceParent;
 
 -(id) initWithView:(NSScrollView *)sv {
+
+    NSLog(@"%@", @"Initializing service mananger");
     self = [super init];
     self.serviceControllers = [[NSMutableArray alloc] init];
     self.bundle = [NSBundle bundleForClass:[self class]];
@@ -32,13 +34,17 @@
 }
 
 -(void) createServicesFile {
+
     NSFileManager *fm = [[NSFileManager alloc] init];
     if (![fm fileExistsAtPath:self.servicesFilePath]) {
+        NSLog(@"%@", @"Creating preferences file");
         [[[NSMutableDictionary alloc] init] writeToFile:self.servicesFilePath atomically:YES];
     }
 }
 
 -(void) cleanServicesFile {
+
+    NSLog(@"%@", @"Removing non-existent services from preferences");
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     NSFileManager *fm = [[NSFileManager alloc] init];
     NSMutableArray *servicesToRemove = [[NSMutableArray alloc] init];
@@ -59,6 +65,7 @@
     Process *p = [[Process alloc] init];
     NSFileManager *fm = [[NSFileManager alloc] init];
     
+    NSLog(@"%@", @"Discovering bash profile files");
     // try the most common way to get your homebrew prefix
     NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile"];
     NSMutableArray *filesToSource = [[NSMutableArray alloc] init];
@@ -68,12 +75,19 @@
             [filesToSource addObject:[NSString stringWithFormat:@"source %@", filePath]];
         }
     }
+    
     NSString *homebrewBashCommand = [NSString stringWithFormat:@"%@ && brew --prefix", [filesToSource componentsJoinedByString:@" && "]];
+    NSLog(@"%@%@", @"Resolved homebrew path command: ", homebrewBashCommand);
+
+    
     NSString *homebrewPath = [p execute:homebrewBashCommand];
+    NSLog(@"%@%@", @"Homebrew prefix: ", homebrewPath);
+
     
     //if that doesn't work, we need the path to your brew executable
     if ([homebrewPath isEqualToString:@""]) {
         
+        NSLog(@"%@", @"Homebrew path not found on initial attempt");
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Cancel"];
@@ -83,6 +97,7 @@
             return;
         }
         
+        NSLog(@"%@", @"Waiting for file selection");
         NSOpenPanel *brewPicker = [NSOpenPanel openPanel];
         [brewPicker setCanChooseDirectories:NO];
         [brewPicker setCanChooseFiles:YES];
@@ -92,7 +107,10 @@
         NSInteger clicked = [brewPicker runModal];
         if (clicked == NSFileHandlingPanelOKButton) {
             NSString *brew = [[brewPicker URL] path];
+            NSLog(@"%@%@", @"Path to brew: ", homebrewPath);
+
             homebrewPath = [p execute:[NSString stringWithFormat:@"%@%@", brew, @" --prefix"]];
+            NSLog(@"%@%@", @"Homebrew prefix: ", homebrewPath);
         }
     }
     
@@ -103,6 +121,8 @@
         [alert setMessageText:@"We couldn't find your homebrew prefix using your Bash profile or the file you selected."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:[self.serviceParent window] completionHandler:nil];
+        NSLog(@"%@", @"Unable to find Homebrew path");
+
     }
     
     
@@ -148,6 +168,7 @@
 }
 
 -(void) addService:(NSString *)plistFile {
+    NSLog(@"%@%@", @"Adding services", plistFile);
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSArray *pathComponents = [plistFile componentsSeparatedByString:@"/"];
     NSArray *filenameComponents = [[pathComponents lastObject] componentsSeparatedByString:@"."];
@@ -159,24 +180,28 @@
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList setObject:dict forKey:identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
 }
 
 -(void) saveService:(Service *)service {
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList setObject:[service getPlistData] forKey:service.identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
 }
 
 -(void) removeService:(Service *)service {
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList removeObjectForKey:service.identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
     [self loadServicesFromPlist];
     [self renderList];
 }
 
 
 -(void) loadServicesFromPlist {
+    NSLog(@"%@", @"Attempting to load services from plist");
     [self.serviceControllers release];
     self.serviceControllers = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:self.servicesFilePath];
@@ -188,6 +213,8 @@
         sc.service = service;
         [self.serviceControllers addObject:sc];
     }
+    NSLog(@"%@", @"Successfully loaded services from plist");
+
 }
 
 

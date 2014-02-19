@@ -21,6 +21,9 @@
 @synthesize serviceManager;
 
 -(id) initWithService:(Service *)theService {
+    
+    NSLog(@"%@%@", @"Initializing service ", theService.identifier);
+    
     self = [super init];
     
     self.service = theService;
