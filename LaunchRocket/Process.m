@@ -11,6 +11,8 @@
 @implementation Process
 
 -(NSString *) execute:(NSString *)command {
+    NSLog(@"%@%@", @"Executing command: ", command);
+    
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n exec(\"%@\")\n end tell\n", sudoHelperPath, command];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
@@ -20,6 +22,8 @@
 }
 
 -(NSString *) executeSudo:(NSString *)command {
+    NSLog(@"%@%@", @"Executing command with sudo: ", command);
+
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSMutableString *scriptSource = [NSMutableString stringWithFormat:@"tell application \"%@\"\n execsudo(\"%@\")\n end tell\n", sudoHelperPath, command];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
@@ -29,6 +33,7 @@
 }
 
 +(void) killSudoHelper {
+    NSLog(@"%@", @"Killing helper");
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
     NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];

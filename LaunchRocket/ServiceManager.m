@@ -35,9 +35,9 @@
 
 -(void) createServicesFile {
 
-    NSLog(@"%@", @"Creating preferences file");
     NSFileManager *fm = [[NSFileManager alloc] init];
     if (![fm fileExistsAtPath:self.servicesFilePath]) {
+        NSLog(@"%@", @"Creating preferences file");
         [[[NSMutableDictionary alloc] init] writeToFile:self.servicesFilePath atomically:YES];
     }
 }
@@ -121,6 +121,8 @@
         [alert setMessageText:@"We couldn't find your homebrew prefix using your Bash profile or the file you selected."];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:[self.serviceParent window] completionHandler:nil];
+        NSLog(@"%@", @"Unable to find Homebrew path");
+
     }
     
     
@@ -166,6 +168,7 @@
 }
 
 -(void) addService:(NSString *)plistFile {
+    NSLog(@"%@%@", @"Adding services", plistFile);
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSArray *pathComponents = [plistFile componentsSeparatedByString:@"/"];
     NSArray *filenameComponents = [[pathComponents lastObject] componentsSeparatedByString:@"."];
@@ -177,24 +180,28 @@
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList setObject:dict forKey:identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
 }
 
 -(void) saveService:(Service *)service {
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList setObject:[service getPlistData] forKey:service.identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
 }
 
 -(void) removeService:(Service *)service {
     NSMutableDictionary *servicesList = [[NSMutableDictionary alloc] initWithContentsOfFile:self.servicesFilePath];
     [servicesList removeObjectForKey:service.identifier];
     [servicesList writeToFile:self.servicesFilePath atomically:YES];
+    NSLog(@"%@", @"Wrote services file");
     [self loadServicesFromPlist];
     [self renderList];
 }
 
 
 -(void) loadServicesFromPlist {
+    NSLog(@"%@", @"Attempting to load services from plist");
     [self.serviceControllers release];
     self.serviceControllers = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:self.servicesFilePath];
@@ -206,6 +213,8 @@
         sc.service = service;
         [self.serviceControllers addObject:sc];
     }
+    NSLog(@"%@", @"Successfully loaded services from plist");
+
 }
 
 
