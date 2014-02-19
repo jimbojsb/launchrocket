@@ -205,9 +205,20 @@
     [self.serviceControllers release];
     self.serviceControllers = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:self.servicesFilePath];
+    
+    NSFileManager *fm = [[NSFileManager alloc] init];
+    
     for (NSString *key in plistData) {
         NSMutableDictionary *serviceData = [plistData objectForKey:key];
         Service *service = [[Service alloc] initWithOptions:serviceData];
+        
+        if (![fm fileExistsAtPath:service.plist]) {
+            NSLog(@"%@%@", service.plist, @" was not found. Removing from list.");
+            service.identifier = key;
+            [self removeService:service];
+            continue;
+        }
+        
         ServiceController *sc = [[ServiceController alloc] initWithService:service];
         sc.serviceManager = self;
         sc.service = service;
@@ -277,7 +288,7 @@
         
         listOffsetPixels += 37;
 
-        HorizontalDivider *horizontalLine = [[HorizontalDivider alloc] initWithFrame:CGRectMake(0 , listOffsetPixels, 500, 1)];
+        HorizontalDivider *horizontalLine = [[HorizontalDivider alloc] initWithFrame:CGRectMake(0 , listOffsetPixels, 480, 1)];
         [serviceList addSubview:horizontalLine];
 
         listOffsetPixels += 10;

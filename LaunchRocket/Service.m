@@ -19,6 +19,7 @@
 - (id) initWithOptions:(NSDictionary *)options {
     self = [super init];
     self.plist = [options objectForKey:@"plist"];
+      
     NSDictionary *plistData = [[NSDictionary alloc] initWithContentsOfFile:self.plist];
     self.identifier = [plistData objectForKey:@"Label"];
     self.name = [options objectForKey:@"name"];
