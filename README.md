@@ -1,7 +1,7 @@
 LaunchRocket
 ============
 
-<a href="https://flattr.com/submit/auto?user_id=jimbojsb&url=http%3A%2F%2Fgithub.com%2Fjimbojsb%2Flaunchrocket" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+<a href="https://flattr.com/submit/auto?user_id=jimbojsb&url=http%3A%2F%2Fgithub.com%2Fjimbojsb%2Flaunchrocket" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 A Mac PreferencePane for managing services with launchd/launchctl. LaunchRocket was primarily created for managing various services installed by Homebrew, though it should work with most launchd-compatible plists.
 
