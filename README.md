@@ -1,6 +1,8 @@
 LaunchRocket
 ============
 
+<a href="https://flattr.com/submit/auto?user_id=jimbojsb&url=http%3A%2F%2Fgithub.com%2Fjimbojsb%2Flaunchrocket" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+
 A Mac PreferencePane for managing services with launchd/launchctl. LaunchRocket was primarily created for managing various services installed by Homebrew, though it should work with most launchd-compatible plists.
 
 Of particular note is the ability to run some services as root. With Homebrew, most services can simply run as the current user, and this is the desired behavior for a development environment. However, some services (dnsmasq) require being bound to privileged ports, and others (nginx, apache) don't require it, but might in some circumstances. For example, many times it's just easier to run Apache on port 80 and 443 than to deal with code that might not like port numbers in the URLs. I recommend you only run things as root if you absolutely must, to get them working properly.
