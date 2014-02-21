@@ -122,10 +122,11 @@
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert beginSheetModalForWindow:[self.serviceParent window] completionHandler:nil];
         NSLog(@"%@", @"Unable to find Homebrew path");
-
+        return;
     }
     
     
+    NSLog(@"%@", @"Scanning homebrew opt/");
     NSString *optPath = [NSString stringWithFormat:@"%@/opt/", homebrewPath];
     NSDirectoryEnumerator *de = [fm enumeratorAtPath:optPath];
     for (NSString *item in de) {
@@ -135,6 +136,7 @@
         }
     }
     
+    NSLog(@"%@", @"Scanning for josegonzales/php");
     //handle special plists, most specifically, josegonzales/php stuff
     NSString *specialPlistPath = [[self bundle] pathForResource:@"special-plists" ofType:@"plist"];
     NSArray *additionalPlists = [NSArray arrayWithContentsOfFile:specialPlistPath];
@@ -144,6 +146,20 @@
             [self addService:servicePlist];
         }
     }
+    
+    NSLog(@"%@", @"Scanning for homebrew etc/launchrocket");
+    // scan etc/launchrocket
+    NSString *launchrocketPlistsPath = [NSString stringWithFormat:@"%@/etc/launchrocket", homebrewPath];
+    if ([fm fileExistsAtPath:launchrocketPlistsPath]) {
+        de = [fm enumeratorAtPath:launchrocketPlistsPath];
+        for (NSString *plist in de) {
+            NSString *servicePlist = [NSString stringWithFormat:@"%@/%@", launchrocketPlistsPath, plist];
+            if ([fm fileExistsAtPath:servicePlist]) {
+                [self addService:servicePlist];
+            }
+        }
+    }
+    
     
     [self cleanServicesFile];
     [self loadServicesFromPlist];
