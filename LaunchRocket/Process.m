@@ -18,6 +18,7 @@
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];
+    NSLog(@"Result of `%@` was %@", command, output);
     return output;
 }
 
@@ -29,6 +30,7 @@
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptSource];
     NSDictionary *error;
     NSString *output = [[script executeAndReturnError:&error] stringValue];
+    NSLog(@"Result of `sudo %@` was %@", command, output);
     return output;
 }
 
