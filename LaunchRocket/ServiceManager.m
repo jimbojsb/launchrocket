@@ -67,7 +67,7 @@
     
     NSLog(@"%@", @"Discovering bash profile files");
     // try the most common way to get your homebrew prefix
-    NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile"];
+    NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile", @".zshrc"];
     NSMutableArray *filesToSource = [[NSMutableArray alloc] init];
     for (NSString *file in filesToMaybeSource) {
         NSString *filePath = [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), file];
