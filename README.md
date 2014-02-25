@@ -31,7 +31,10 @@ Installing
 **Requirements**
 
 * MacOS 10.7 or above
-* Gatekeeper must be set to allow all apps to run (See issues #3 and #25)
+* Gatekeeper must be set to allow all apps to run (See issues [#3][] and [#25][])
+
+[#3]: https://github.com/jimbojsb/launchrocket/issues/3
+[#25]: https://github.com/jimbojsb/launchrocket/issues/25
 
 The binary release should work on Mac OSX 10.7.0 and above, and might even work on older versions, though it has not been tested on those. The latest builds are compiled on 10.9.1 and targeted at 10.7 in xCode.
 
