@@ -46,9 +46,8 @@ Download and unzip the binary release from the [release page](https://github.com
 
 **Homebrew**
 
-Launchrocket is available as a Cask for [Homebrew Cask](https://github.com/phinze/homebrew-cask).
+Launchrocket is available as a Cask for [Homebrew Cask](https://github.com/phinze/homebrew-cask). As of 3/3/2014 it is no longer maintained in my personal tap, and is now available in the main Homebrew Cask repo.
 
-    brew tap jimbojsb/launchrocket
     brew cask install launchrocket
 
 
