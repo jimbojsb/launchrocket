@@ -10,9 +10,9 @@
 
 @interface Process : NSObject
 
-@property AuthorizationRef authref;
+@property (strong) NSString* pathEnvVar;
 
-
+-(NSString *) findPathEnvVar;
 -(NSString *) execute:(NSString *)command;
 -(NSString *) executeSudo:(NSString *)command;
 +(void) killSudoHelper;

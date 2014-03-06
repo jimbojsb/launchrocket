@@ -65,22 +65,7 @@
     Process *p = [[Process alloc] init];
     NSFileManager *fm = [[NSFileManager alloc] init];
     
-    NSLog(@"%@", @"Discovering bash profile files");
-    // try the most common way to get your homebrew prefix
-    NSArray *filesToMaybeSource = @[@".bash_profile", @".bashrc", @".profile"];
-    NSMutableArray *filesToSource = [[NSMutableArray alloc] init];
-    for (NSString *file in filesToMaybeSource) {
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), file];
-        if ([fm fileExistsAtPath:filePath]) {
-            [filesToSource addObject:[NSString stringWithFormat:@"source %@", filePath]];
-        }
-    }
-    
-    NSString *homebrewBashCommand = [NSString stringWithFormat:@"%@ && brew --prefix", [filesToSource componentsJoinedByString:@" && "]];
-    NSLog(@"%@%@", @"Resolved homebrew path command: ", homebrewBashCommand);
-
-    
-    NSString *homebrewPath = [p execute:homebrewBashCommand];
+    NSString *homebrewPath = [p execute:@"brew --prefix"];
     NSLog(@"%@%@", @"Homebrew prefix: ", homebrewPath);
 
     
