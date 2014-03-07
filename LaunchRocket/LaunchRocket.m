@@ -22,15 +22,15 @@
 
 - (void)mainViewDidLoad
 {
-    NSLog(@"%@", @"Initialzing LaunchRocket");
+    NSLog(@"Initialzing LaunchRocket");
     ServiceManager *sm = [[ServiceManager alloc] initWithView:self.serviceParent];
-    [sm cleanServicesFile];
+    [sm cleanServices];
     [self.homebrewScan setTarget:sm];
     [self.homebrewScan setAction:@selector(handleHomebrewScanClick:)];
     [self.addPlist setTarget:sm];
     [self.addPlist setAction:@selector(handleAddPlistClick:)];
     
-    NSLog(@"%@", @"Setting fonts");
+    NSLog(@"Setting fonts");
     self.launchRocketLabel.font = [OpenSansFont getFontWithSize:16];
     self.versionNumber.font = [OpenSansFont getFontWithSize:13];
     [sm renderList];
