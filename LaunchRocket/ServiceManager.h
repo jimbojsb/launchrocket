@@ -11,20 +11,26 @@
 
 @interface ServiceManager : NSObject
 
-@property (retain) NSMutableArray *serviceControllers;
-@property (retain) NSBundle *bundle;
-@property (retain) NSScrollView* serviceParent;
-@property (retain) NSString *servicesFilePath;
+@property (strong) NSMutableArray *serviceControllers;
+@property (strong) NSBundle *bundle;
+@property (strong) NSScrollView* serviceParent;
+@property (strong) NSString *preferencesFile;
+@property (strong) NSMutableDictionary *preferences;
 
 -(id) initWithView:(NSScrollView *)sv;
--(void) createServicesFile;
--(void) cleanServicesFile;
+-(void) createPreferencesFile;
+-(void) cleanServices;
 -(void) renderList;
--(void) loadServicesFromPlist;
+-(void) loadServices;
 -(void) addService: (NSString *)plistFile;
 -(void) removeService: (Service *)service;
 -(void) saveService: (Service *)service;
+-(void) writePreferences;
+-(void) loadPreferences;
+
+
 -(IBAction) handleHomebrewScanClick:(id) sender;
 -(IBAction) handleAddPlistClick:(id)sender;
+
 
 @end

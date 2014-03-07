@@ -35,7 +35,7 @@
 }
 
 +(void) killSudoHelper {
-    NSLog(@"%@", @"Killing helper");
+    NSLog(@"Killing helper");
     NSString *sudoHelperPath = [NSString stringWithFormat:@"%@%@", [[NSBundle bundleForClass:[self class]] resourcePath], @"/sudo.app"];
     NSString *scriptSource = [NSString stringWithFormat:@"tell application \"%@\"\n stopscript()\n end tell\n", sudoHelperPath];
     NSAppleScript *script = [[NSAppleScript new] initWithSource:scriptSource];
