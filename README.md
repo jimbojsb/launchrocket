@@ -57,4 +57,4 @@ LaunchRocket uses an AppleScript helper to obtain root privileges. This is a hac
 
 Contributing
 ------------
-Found a bug? File an issue and I'll take a look. Pull requests are welcome.
+Found a bug? File an issue and I'll take a look. Pull requests are welcome. If you'd like to chat about a feature or issue, I can sometimes be found in #launchrocket on Freenode.
