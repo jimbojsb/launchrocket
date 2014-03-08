@@ -34,6 +34,9 @@
     self.launchRocketLabel.font = [OpenSansFont getFontWithSize:16];
     self.versionNumber.font = [OpenSansFont getFontWithSize:13];
     [sm renderList];
+    
+    [self.versionNumber setStringValue: [NSString stringWithFormat:@"Version %@", [[[self bundle] infoDictionary] valueForKey:@"CFBundleVersion"]]];
+    
 }
 
 - (void)didUnselect {
