@@ -148,6 +148,9 @@
         self.service.useSudo = NO;
     }
     [self.serviceManager saveService:self.service];
+    [self isStarted];
+    [self updateStartStopStatus];
+    [self updateStatusIndicator];
 }
 
 -(void) handleRunAtLoginClick:(id)sender {
