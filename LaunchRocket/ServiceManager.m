@@ -41,7 +41,7 @@
     if (![fm fileExistsAtPath:self.preferencesFile]) {
         NSLog(@"Creating preferences file");
         NSMutableDictionary *prefs = [[NSMutableDictionary alloc] init];
-        NSString *version =[[[self bundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+        NSString *version =[[[self bundle] infoDictionary] valueForKey:@"PreferenceFileVersion"];
         [prefs setObject:version forKey:@"version"];
         [prefs setObject:[[NSDictionary alloc] init] forKey:@"services"];
         [prefs writeToFile:self.preferencesFile atomically:YES];
@@ -58,7 +58,7 @@
     
     if ([fm fileExistsAtPath:self.preferencesFile]) {
         NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:self.preferencesFile];
-        NSString *version = [[[self bundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+        NSString *version = [[[self bundle] infoDictionary] valueForKey:@"PreferenceFileVersion"];
         if (![version isEqualToString:[prefs objectForKey:@"version"]]) {
             [fm removeItemAtPath:self.preferencesFile error:nil];
             NSLog(@"Killing preferences file, versions did not match");
@@ -206,7 +206,6 @@
 }
 
 -(void) addService:(NSString *)plistFile {
-    NSLog(@"%@%@", @"Adding services", plistFile);
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSArray *pathComponents = [plistFile componentsSeparatedByString:@"/"];
     NSArray *filenameComponents = [[pathComponents lastObject] componentsSeparatedByString:@"."];
@@ -215,7 +214,12 @@
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
     
-    [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
+    if ([[self.preferences objectForKey:@"services"] objectForKey:identifier] == nil) {
+        NSLog(@"Adding %@", plistFile);
+        [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
+    } else {
+        NSLog(@"%@ already exists -- preserving", plistFile);
+    }
     [self writePreferences];
 }
 
