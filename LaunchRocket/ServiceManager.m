@@ -295,7 +295,7 @@
         [sc updateStartStopStatus];
         [serviceList addSubview:startStop];
     
-        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(260, listOffsetPixels - 1, 80, 30)];
+        NSButton *sudo = [[NSButton alloc] initWithFrame:NSMakeRect(246, listOffsetPixels - 1, 80, 30)];
         [sudo setButtonType:NSSwitchButton];
         [sudo setTitle:@"As Root"];
         [sudo setTarget:sc];
@@ -318,8 +318,13 @@
         [remove setTarget:sc];
         [remove setAction:@selector(handleRemoveClick:)];
         [serviceList addSubview:remove];
-
         
+        NSButton *show = [[NSButton alloc] initWithFrame:NSMakeRect(324, listOffsetPixels, 80, 30)];
+        [show setBezelStyle:NSTexturedRoundedBezelStyle];
+        [show setTitle:@"Show plist"];
+        [show setTarget:sc];
+        [show setAction:@selector(handleShowClick:)];
+        [serviceList addSubview:show];
         
         listOffsetPixels += 37;
 

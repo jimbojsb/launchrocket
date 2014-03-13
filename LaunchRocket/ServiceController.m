@@ -168,4 +168,8 @@
     [self.serviceManager removeService:self.service];
 }
 
+-(void) handleShowClick:(id)sender {
+    [[NSWorkspace sharedWorkspace] selectFile:self.service.plist inFileViewerRootedAtPath:self.service.plist];
+}
+
 @end
