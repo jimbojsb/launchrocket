@@ -17,7 +17,7 @@
     CGDataProviderRef dataProvider = CGDataProviderCreateWithURL(url);
     CGFontRef theCGFont = CGFontCreateWithDataProvider(dataProvider);
     CTFontRef theCTFont = CTFontCreateWithGraphicsFont(theCGFont, size, nil, nil);
-    NSFont *openSans = (NSFont *) theCTFont;
+    NSFont *openSans = (__bridge NSFont *) theCTFont;
     CFRelease(theCGFont);
     CFRelease(dataProvider);
     CFRelease(url);

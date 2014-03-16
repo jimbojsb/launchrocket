@@ -238,7 +238,6 @@
 
 -(void) loadServices {
     NSLog(@"Attempting to load services from plist");
-    [self.serviceControllers release];
     self.serviceControllers = [[NSMutableArray alloc] init];
     NSDictionary *plistData = [self.preferences objectForKey:@"services"];
     NSFileManager *fm = [[NSFileManager alloc] init];
