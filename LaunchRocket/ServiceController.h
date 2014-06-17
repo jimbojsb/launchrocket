@@ -12,13 +12,13 @@
 
 @interface ServiceController : NSObject
 
-@property (retain) Service *service;
-@property (retain) NSFileManager *fm;
+@property (strong) Service *service;
+@property (strong) NSFileManager *fm;
 @property (strong) NSImageView *statusIndicator;
 @property (strong) NSButton *startStop;
 @property (strong) NSButton *useSudo;
 @property (strong) NSButton *runAtLogin;
-@property (weak) ServiceManager *serviceManager;
+@property (strong) ServiceManager *serviceManager;
 
 @property int status;
 
