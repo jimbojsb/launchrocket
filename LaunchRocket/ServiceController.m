@@ -38,8 +38,9 @@
     Process *p = [[Process alloc] init];
     
     NSString *output;
-    NSMutableString *launchCtlCommand = [[NSMutableString alloc] initWithString:@"/bin/launchctl list | grep "];
+    NSMutableString *launchCtlCommand = [[NSMutableString alloc] initWithString:@"/bin/launchctl list | grep \""];
     [launchCtlCommand appendString:self.service.identifier];
+    [launchCtlCommand appendString:@"\"$"];
     
     if (self.service.useSudo) {
         output = [p executeSudo:launchCtlCommand];
