@@ -242,14 +242,15 @@
     NSDictionary *plistData = [self.preferences objectForKey:@"services"];
     NSFileManager *fm = [[NSFileManager alloc] init];
     
+    NSMutableArray *staleServices = [[NSMutableArray alloc] init];
     for (NSString *key in plistData) {
         NSMutableDictionary *serviceData = [plistData objectForKey:key];
         Service *service = [[Service alloc] initWithOptions:serviceData];
         
         if (![fm fileExistsAtPath:service.plist]) {
-            NSLog(@"%@%@", service.plist, @" was not found. Removing from list.");
+            NSLog(@"%@%@", service.plist, @" was not found. Will be removed from list.");
             service.identifier = key;
-            [self removeService:service];
+            [staleServices addObject:service];
             continue;
         }
         
@@ -259,6 +260,10 @@
         [self.serviceControllers addObject:sc];
     }
     NSLog(@"Successfully loaded services from plist");
+    
+    for (Service *s in staleServices) {
+        [self removeService:s];
+    }
 
 }
 

@@ -10,11 +10,11 @@
 
 @interface LaunchRocket : NSPreferencePane
 
-@property IBOutlet NSScrollView *serviceParent;
-@property IBOutlet NSButton *homebrewScan;
-@property IBOutlet NSButton *addPlist;
-@property IBOutlet NSTextField *launchRocketLabel;
-@property IBOutlet NSTextField *versionNumber;
+@property (assign) IBOutlet NSScrollView *serviceParent;
+@property (assign) IBOutlet NSButton *homebrewScan;
+@property (assign) IBOutlet NSButton *addPlist;
+@property (assign) IBOutlet NSTextField *launchRocketLabel;
+@property (assign) IBOutlet NSTextField *versionNumber;
 
 
 - (void)mainViewDidLoad;
