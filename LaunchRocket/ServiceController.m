@@ -164,6 +164,38 @@
         self.service.runAtLogin = NO;
     }
     [self.serviceManager saveService:self.service];
+    
+    if (self.service.runAtLogin) {
+        NSString *newPlist;
+        if (self.service.useSudo) {
+            newPlist = [NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.service.identifier];
+        } else {
+            newPlist = [NSString stringWithFormat:@"%@/Library/LaunchAgents/%@.plist", NSHomeDirectory(), self.service.identifier];
+        }
+        NSString *copyCommand = [NSString stringWithFormat:@"cp %@ %@", self.service.plist, newPlist];
+        NSLog(@"Executing for at-login run: %@", copyCommand);
+        Process *p = [[Process alloc] init];
+        if (self.service.useSudo) {
+            [p executeSudo:copyCommand];
+        } else {
+            [p execute:copyCommand];
+        }
+    } else {
+        NSString *plistToDelete;
+        if (self.service.useSudo) {
+            plistToDelete = [NSString stringWithFormat:@"/Library/LaunchDaemons/%@.plist", self.service.identifier];
+        } else {
+            plistToDelete = [NSString stringWithFormat:@"%@/Library/LaunchAgents/%@.plist", NSHomeDirectory(), self.service.identifier];
+        }
+        NSString *deleteCommand = [NSString stringWithFormat:@"rm -f %@", plistToDelete];
+        NSLog(@"Cleaning up: %@", deleteCommand);
+        Process *p = [[Process alloc] init];
+        if (self.service.useSudo) {
+            [p executeSudo:deleteCommand];
+        } else {
+            [p execute:deleteCommand];
+        }
+    }
 }
 
 -(void) handleRemoveClick:(id)sender {
