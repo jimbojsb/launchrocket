@@ -142,6 +142,7 @@
 }
 
 -(void) handleSudoClick:(id)sender {
+    [self stop];
     NSButton *b = (NSButton *)sender;
     if (b.state == NSOnState) {
         self.service.useSudo = YES;
@@ -149,6 +150,7 @@
         self.service.useSudo = NO;
     }
     [self.serviceManager saveService:self.service];
+    [self start];
     [self isStarted];
     [self updateStartStopStatus];
     [self updateStatusIndicator];
