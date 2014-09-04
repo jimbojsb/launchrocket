@@ -159,8 +159,7 @@
         }
     }
     
-    NSLog(@"Scanning for josegonzales/php");
-    //handle special plists, most specifically, josegonzales/php stuff
+    NSLog(@"Scanning for special plists");
     NSString *specialPlistPath = [[self bundle] pathForResource:@"special-plists" ofType:@"plist"];
     NSArray *additionalPlists = [NSArray arrayWithContentsOfFile:specialPlistPath];
     for (NSString *plist in additionalPlists) {
