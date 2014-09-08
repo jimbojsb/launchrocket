@@ -314,6 +314,9 @@
         [runAtLogin setTitle:@"At Login"];
         [runAtLogin setTarget:sc];
         [runAtLogin setAction:@selector(handleRunAtLoginClick:)];
+        if (sc.service.runAtLogin) {
+            [runAtLogin setState:NSOnState];
+        }
         [serviceList addSubview:runAtLogin];
         
         NSButton *remove = [[NSButton alloc] initWithFrame:NSMakeRect(410, listOffsetPixels, 70, 30)];

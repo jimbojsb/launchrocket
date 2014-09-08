@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,11 +19,13 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6</string>
+	<string>0.7b1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.6</string>
+	<string>0.7b1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
 	<key>NSMainNibFile</key>
@@ -30,13 +34,9 @@
 	<string>LaunchRocket.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
 	<string>LaunchRocket</string>
-	<key>ATSApplicationFontsPath</key>
-	<string>Fonts</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
-	<key>PreferenceFileVersion</key>
-	<string>2</string>
 	<key>NSPrincipalClass</key>
 	<string>LaunchRocket</string>
+	<key>PreferenceFileVersion</key>
+	<string>2</string>
 </dict>
 </plist>
