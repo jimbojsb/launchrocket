@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7b1</string>
+	<string>0.7</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.7b1</string>
+	<string>0.7</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>NSHumanReadableCopyright</key>
