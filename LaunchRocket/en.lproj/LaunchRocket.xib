@@ -31,6 +31,7 @@
                         <rect key="frame" x="13" y="225" width="113" height="123"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="rocket" id="100"/>
+                        <accessibility description="LaunchRocket logo"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="101">
                         <rect key="frame" x="10" y="187" width="118" height="30"/>
