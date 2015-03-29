@@ -108,19 +108,24 @@
 
 -(void) updateStatusIndicator {
     NSString *statusImageName;
+    NSString *statusImageAccessibilityDescription;
     switch (self.status) {
         case 0:
             statusImageName = @"red";
+            statusImageAccessibilityDescription = NSLocalizedString(@"Not running", nil);
             break;
         case 1:
             statusImageName = @"yellow";
+            statusImageAccessibilityDescription = NSLocalizedString(@"Starting or stopping", nil);
             break;
         case 2:
             statusImageName = @"green";
+            statusImageAccessibilityDescription = NSLocalizedString(@"Running", nil);
             break;
     }
     NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]];
     [self.statusIndicator setImage:image];
+    [self.statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
     [self.statusIndicator setNeedsDisplay:YES];
 }
 
