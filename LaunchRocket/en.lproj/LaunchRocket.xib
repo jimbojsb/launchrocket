@@ -79,6 +79,7 @@
                             <rect key="frame" x="421" y="0.0" width="15" height="328"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
+                        <accessibility description="Launch Services"/>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="141">
                         <rect key="frame" x="12" y="55" width="115" height="25"/>
