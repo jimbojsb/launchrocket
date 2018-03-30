@@ -276,7 +276,7 @@
     for (ServiceController *sc in self.serviceControllers) {
         
         NSImageView *statusIndicator = [[NSImageView alloc] initWithFrame:NSMakeRect(0, listOffsetPixels, 30, 30)];
-        [statusIndicator setImageScaling:NSScaleToFit];
+        [statusIndicator setImageScaling:NSImageScaleAxesIndependently];
         [serviceList addSubview:statusIndicator];
         sc.statusIndicator = statusIndicator;
         [sc updateStatusIndicator];
