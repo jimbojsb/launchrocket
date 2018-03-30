@@ -125,7 +125,7 @@
     }
     NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:statusImageName ofType:@"png"]];
     [self.statusIndicator setImage:image];
-    [self.statusIndicator.cell accessibilitySetOverrideValue:statusImageAccessibilityDescription forAttribute:NSAccessibilityDescriptionAttribute];
+    self.statusIndicator.cell.accessibilityRoleDescription = statusImageAccessibilityDescription;
     [self.statusIndicator setNeedsDisplay:YES];
 }
 
