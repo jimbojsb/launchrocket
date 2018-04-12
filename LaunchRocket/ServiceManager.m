@@ -213,12 +213,8 @@
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
     
-    if ([[self.preferences objectForKey:@"services"] objectForKey:identifier] == nil) {
-        NSLog(@"Adding %@", plistFile);
-        [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
-    } else {
-        NSLog(@"%@ already exists -- preserving", plistFile);
-    }
+	NSLog(@"Adding %@", plistFile);
+	[[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
     [self writePreferences];
 }
 
