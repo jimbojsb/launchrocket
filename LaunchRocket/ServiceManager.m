@@ -213,8 +213,8 @@
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
     
-	NSLog(@"Adding %@", plistFile);
-	[[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
+    NSLog(@"Adding %@", plistFile);
+    [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
     [self writePreferences];
 }
 
