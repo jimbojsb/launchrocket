@@ -213,8 +213,15 @@
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
     
-    NSLog(@"Adding %@", plistFile);
-    [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
+    NSMutableDictionary *current = [[[self.preferences objectForKey:@"services"] objectForKey:identifier] mutableCopy];
+    if (current == nil) {
+        NSLog(@"Adding %@", plistFile);
+        [[self.preferences objectForKey:@"services"] setObject:dict forKey:identifier];
+    } else {
+        [current addEntriesFromDictionary: dict];
+        [[self.preferences objectForKey:@"services"] setObject:current.copy forKey:identifier];
+        NSLog(@"%@ already exists -- updating", plistFile);
+    }
     [self writePreferences];
 }
 
