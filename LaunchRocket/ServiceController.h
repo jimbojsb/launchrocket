@@ -32,6 +32,6 @@
 -(void) updateStartStopStatus;
 -(void) handleRunAtLoginClick:(id)sender;
 -(void) handleRemoveClick:(id)sender;
-
+-(void) handleShowClick:(id)sender;
 
 @end
