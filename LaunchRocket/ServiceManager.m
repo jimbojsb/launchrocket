@@ -209,7 +209,7 @@
     NSArray *pathComponents = [plistFile componentsSeparatedByString:@"/"];
     NSArray *filenameComponents = [[pathComponents lastObject] componentsSeparatedByString:@"."];
     NSString *identifier = [[filenameComponents subarrayWithRange:NSMakeRange(0, [filenameComponents count] - 1)] componentsJoinedByString:@"."];
-    NSString *serviceName = [[[filenameComponents subarrayWithRange:NSMakeRange(2, [filenameComponents count] - 3)] componentsJoinedByString:@"."] capitalizedString];
+    NSString *serviceName = [[[filenameComponents subarrayWithRange:NSMakeRange(2, [filenameComponents count] - 1)] componentsJoinedByString:@"."] capitalizedString];
     [dict setObject:plistFile forKey:@"plist"];
     [dict setObject:serviceName forKey:@"name"];
     
